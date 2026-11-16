@@ -1,5 +1,6 @@
 # --- اسرار و دسترسی‌ها (هرگز commit نشود) ---
 .ftp.env
+.ftp.env.*
 ftp
 deploy.ps1
 .vscode/sftp.json
@@ -9,6 +10,8 @@ deploy.ps1
 *.pem
 *.key
 wp-config.php
+credentials*
+*secrets*
 
 # --- خروجی و وابستگی‌ها ---
 node_modules/
@@ -22,6 +25,7 @@ qa/.auth/
 # --- سیستم‌عامل / ادیتور ---
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # محلی (اسرار و داده‌ی خام)
 .env.local
