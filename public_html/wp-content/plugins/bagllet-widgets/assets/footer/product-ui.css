@@ -1,0 +1,146 @@
+/* Bagllet Product UI — single product fixes */
+
+/* 1) Price: reverse amount / تومان, تومان 2px smaller */
+.single-product .wd-single-price .price .woocommerce-Price-amount bdi,
+.single-product .elementor-widget-wd_single_product_price .price .woocommerce-Price-amount bdi,
+.single-product p.price .woocommerce-Price-amount bdi,
+.single-product .price .woocommerce-Price-amount bdi {
+	display: inline-flex !important;
+	flex-direction: row-reverse !important;
+	align-items: baseline !important;
+	gap: 0.25em !important;
+}
+
+.single-product .wd-single-price .price .woocommerce-Price-currencySymbol,
+.single-product .elementor-widget-wd_single_product_price .price .woocommerce-Price-currencySymbol,
+.single-product p.price .woocommerce-Price-currencySymbol,
+.single-product .price .woocommerce-Price-currencySymbol {
+	font-size: calc(1em - 2px) !important;
+	line-height: 1 !important;
+}
+
+/* 2+3) Variations: right aligned, label on top, large rounded swatches */
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations,
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations tbody,
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations tr {
+	display: block !important;
+	width: 100% !important;
+	text-align: right !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations .label.cell,
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations th.label {
+	display: block !important;
+	width: 100% !important;
+	text-align: right !important;
+	margin: 0 0 5px !important;
+	padding: 0 !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations .value.cell,
+.single-product .elementor-widget-wd_single_product_add_to_cart form.variations_form table.variations td.value {
+	display: block !important;
+	width: 100% !important;
+	text-align: right !important;
+	padding: 0 0 20px !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .wd-swatches-product {
+	display: inline-flex !important;
+	justify-content: flex-start !important;
+	align-items: center !important;
+	gap: 10px 15px !important;
+	text-align: right !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .wd-swatches-product .wd-swatch.wd-bg,
+.single-product .elementor-widget-wd_single_product_add_to_cart .wd-swatches-product .wd-swatch {
+	width: 45px !important;
+	height: 45px !important;
+	min-width: 45px !important;
+	min-height: 45px !important;
+	border-radius: 5px !important;
+	font-size: 45px !important;
+	overflow: hidden !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .wd-swatches-product .wd-swatch .wd-swatch-bg {
+	position: relative !important;
+	width: 100% !important;
+	height: 100% !important;
+	border-radius: 5px !important;
+}
+
+/* Selected swatch checkmark: white tick with dark outline so it reads on light and dark colors */
+.single-product .wd-swatches-product .wd-swatch .wd-swatch-bg::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	margin: auto;
+	width: 22px;
+	height: 22px;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' stroke='rgba(0,0,0,.45)' stroke-width='5'/%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E") center / contain no-repeat;
+	opacity: 0;
+	transform: scale(0.4);
+	transition: opacity 0.2s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+	pointer-events: none;
+}
+
+.single-product .wd-swatches-product .wd-swatch.wd-active .wd-swatch-bg::before {
+	opacity: 1;
+	transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.single-product .wd-swatches-product .wd-swatch .wd-swatch-bg::before {
+		transition: none;
+	}
+}
+
+/* 4) Add to cart layout like reference (color intentionally unchanged) */
+.single-product .elementor-widget-wd_single_product_add_to_cart .woocommerce-variation-add-to-cart.variations_button,
+.single-product .elementor-widget-wd_single_product_add_to_cart form.cart .woocommerce-variation-add-to-cart {
+	display: flex !important;
+	flex-direction: row !important;
+	justify-content: flex-start !important;
+	align-items: stretch !important;
+	gap: 10px !important;
+	width: 100% !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .variations_button .quantity {
+	flex: 0 0 auto !important;
+	width: 80px !important;
+	max-width: 80px !important;
+	display: flex !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .variations_button .single_add_to_cart_button.button.alt,
+.single-product .elementor-widget-wd_single_product_add_to_cart button.single_add_to_cart_button {
+	flex: 1 1 auto !important;
+	flex-grow: 1 !important;
+	width: auto !important;
+	max-width: none !important;
+	border-radius: 5px !important;
+	justify-content: center !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .quantity .minus.btn,
+.single-product .elementor-widget-wd_single_product_add_to_cart .quantity .plus.btn {
+	min-width: 25px !important;
+	border: 2px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .quantity .minus.btn {
+	border-radius: 0 5px 5px 0 !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .quantity .plus.btn {
+	border-radius: 5px 0 0 5px !important;
+}
+
+.single-product .elementor-widget-wd_single_product_add_to_cart .quantity .input-text.qty {
+	width: 30px !important;
+	text-align: center !important;
+}

@@ -1,0 +1,137 @@
+/* ===== صفحه‌ی «تماس با ما» (روی پایه‌ی about-page.css) ===== */
+.bgl-contact .bgl-w { padding-block: 32px; }
+.bgl-contact .bgl-ci-w { padding-top: 64px; }
+
+/* ابتدا */
+.bgl-ci { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+.bgl-ci--solo { grid-template-columns: 1fr; }
+.bgl-ci__tx { display: flex; flex-direction: column; justify-content: center; padding-inline-end: 32px; }
+.bgl-ci__h { margin: 8px 0 0; font-size: 30px; line-height: 44px; font-weight: 700; color: #000; }
+.bgl-ci__tx p { margin: 8px 0 0; max-width: 460px; font-size: 14px; line-height: 26px; color: #4b5563; }
+.bgl-wa { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; min-height: 200px; padding: 22px 26px; background: #000; color: #fff; border-radius: 12px; }
+.bgl-wa::before { content: ""; position: absolute; inset: 0; background: radial-gradient(420px 300px at 100% 0%, rgba(195, 141, 106, .25), rgba(195, 141, 106, 0) 70%); pointer-events: none; }
+.bgl-wa > * { position: relative; }
+.bgl-wa__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.bgl-wa__ic { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #141414; border: 1px solid #2a2a2a; border-radius: 10px; color: #c38d6a; }
+.bgl-wa__ic .bgl-icon { width: 22px; height: 22px; }
+.bgl-wa__st { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; color: #b5b5b5; }
+.bgl-wa__st::before { content: ""; width: 7px; height: 7px; background: #2f7d5c; border-radius: 2px; }
+.bgl-wa h2 { margin: 14px 0 0; font-size: 20px; line-height: 30px; font-weight: 700; color: #fff; }
+.bgl-wa p { margin: 2px 0 0; font-size: 14px; line-height: 24px; color: #b5b5b5; }
+.bgl-wa .bgl-btn { margin-top: 14px; }
+.bgl-wa .bgl-btn:focus-visible { outline-color: #c38d6a; }
+
+/* فرم */
+.bgl-fm { display: grid; grid-template-columns: 4fr 8fr; gap: 36px; align-items: start; }
+.bgl-fm__side .bgl-hd__t { margin-top: 6px; }
+.bgl-fm__side .bgl-hd__l { margin-top: 8px; }
+.bgl-fm__side .bgl-fm__hint { margin: 14px 0 0; display: flex; flex-direction: column; gap: 8px; }
+.bgl-fm__side .bgl-fm__hint li { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 22px; color: #6b7280; }
+.bgl-fm__hint .bgl-icon { width: 18px; height: 18px; flex: none; margin-top: 1px; color: #000; }
+.bgl-fm__form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px; background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; }
+.bgl-fm__msg { grid-column: 1 / -1; padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 22px; font-weight: 700; }
+.bgl-fm__msg--ok { background: #eef7f2; border: 1px solid #2f7d5c; color: #1f5a41; }
+.bgl-fm__msg--err { background: #fbefed; border: 1px solid #b3402f; color: #8a2f21; }
+.bgl-fm__hp { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.bgl-fm__f { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.bgl-fm__f--w { grid-column: 1 / -1; }
+.bgl-fm__f label { font-size: 13px; line-height: 22px; font-weight: 700; color: #000; }
+.bgl-fm__f input,
+.bgl-fm__f select,
+.bgl-fm__f textarea { width: 100%; padding: 0 12px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 8px; font-family: inherit; font-size: 14px; line-height: 22px; color: #000; letter-spacing: 0; box-shadow: none; }
+.bgl-fm__f input,
+.bgl-fm__f select { height: 40px; }
+.bgl-fm__f textarea { min-height: 84px; padding-block: 8px; resize: vertical; }
+.bgl-fm__f ::placeholder { color: #9ca3af; opacity: 1; }
+.bgl-fm__f input:focus-visible,
+.bgl-fm__f select:focus-visible,
+.bgl-fm__f textarea:focus-visible { outline: 2px solid #000; outline-offset: 1px; border-color: #000; background: #fff; }
+.bgl-fm__sub { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 2px; }
+.bgl-fm__sub small { max-width: 280px; font-size: 12px; line-height: 20px; font-weight: 300; color: #6b7280; }
+.bgl-fm__sub .bgl-btn { margin-top: 0; border: 0; cursor: pointer; font-family: inherit; }
+
+/* پرسش‌ها */
+.bgl-fq { border-top: 1px solid #e6e6e6; }
+.bgl-fq__it { border-bottom: 1px solid #e6e6e6; }
+.bgl-fq__it summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; list-style: none; cursor: pointer; font-size: 15px; line-height: 24px; font-weight: 700; color: #000; }
+.bgl-fq__it summary::-webkit-details-marker { display: none; }
+.bgl-fq__it summary:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+.bgl-fq__pm { position: relative; flex: none; width: 26px; height: 26px; border: 1px solid #e6e6e6; border-radius: 6px; transition: background-color .28s ease, border-color .28s ease; }
+.bgl-fq__pm::before,
+.bgl-fq__pm::after { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 1.5px; margin: -.75px 0 0 -5px; background: #000; transition: transform .28s cubic-bezier(.2, .7, .2, 1), background-color .28s ease; }
+.bgl-fq__pm::after { transform: rotate(90deg); }
+.bgl-fq__it summary:hover .bgl-fq__pm { border-color: #000; }
+.bgl-fq__it[open] .bgl-fq__pm { background: #000; border-color: #000; }
+.bgl-fq__it[open] .bgl-fq__pm::before,
+.bgl-fq__it[open] .bgl-fq__pm::after { background: #fff; }
+.bgl-fq__it[open] .bgl-fq__pm::after { transform: rotate(0deg); }
+@media (prefers-reduced-motion: reduce) {
+	.bgl-fq__pm, .bgl-fq__pm::before, .bgl-fq__pm::after { transition: none; }
+}
+/* مخفی‌سازی واقعی محتوا وقتی بسته است (Woodmart/Chrome: overflow پیش‌فرض visible) */
+.bgl-fq__it::details-content {
+	overflow: hidden;
+}
+.bgl-fq__it:not([open])::details-content {
+	height: 0;
+	content-visibility: hidden;
+}
+.bgl-fq__a { max-width: 720px; padding: 0 0 12px; font-size: 14px; line-height: 26px; color: #4b5563; }
+.bgl-fq__note { margin: 12px 0 0; font-size: 12px; line-height: 20px; font-weight: 300; color: #6b7280; }
+
+@media (max-width: 1024px) {
+	.bgl-ci__tx { padding-inline-end: 16px; }
+	.bgl-ci__h { font-size: 26px; line-height: 40px; }
+	.bgl-wa { padding: 20px; }
+	.bgl-fm { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 767px) {
+	.bgl-contact .bgl-w { padding-block: 24px; }
+	.bgl-contact .bgl-ci-w { padding-top: 44px; }
+	.bgl-ci { grid-template-columns: 1fr; }
+	.bgl-ci__tx { padding: 0; }
+	.bgl-ci__h { font-size: 24px; line-height: 36px; }
+	.bgl-wa { min-height: 0; padding: 18px; }
+	.bgl-wa h2 { margin-top: 12px; font-size: 18px; line-height: 28px; }
+	.bgl-wa .bgl-btn { width: 100%; }
+	.bgl-fm__form { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+	.bgl-fm__f input, .bgl-fm__f select, .bgl-fm__f textarea { font-size: 16px; }
+	.bgl-fm__sub { flex-direction: column; align-items: stretch; }
+	.bgl-fm__sub small { max-width: none; }
+	.bgl-fm__sub .bgl-btn { width: 100%; }
+	.bgl-fq__it summary { padding: 10px 0; font-size: 14px; line-height: 24px; }
+}
+
+/* قالب وودمارت فیلدها را گرد و بلند می‌کند؛ این‌جا با اولویت جمع‌وجور می‌شوند */
+.bgl-fm__form .bgl-fm__f input,
+.bgl-fm__form .bgl-fm__f select { height: 40px !important; min-height: 0 !important; padding: 0 12px !important; border-radius: 8px !important; font-size: 14px !important; line-height: 22px !important; }
+.bgl-fm__form .bgl-fm__f textarea { height: 96px !important; min-height: 84px !important; padding: 8px 12px !important; border-radius: 8px !important; font-size: 14px !important; line-height: 22px !important; }
+.bgl-fm__form .bgl-fm__sub .bgl-btn { height: 40px; padding: 0 20px; background: #000 !important; color: #fff !important; border: 0 !important; border-radius: 8px !important; font-size: 14px; }
+.bgl-fm__form .bgl-fm__sub .bgl-btn:hover { background: #141414 !important; }
+@media (max-width: 767px) {
+	.bgl-fm__form .bgl-fm__f input,
+	.bgl-fm__form .bgl-fm__f select,
+	.bgl-fm__form .bgl-fm__f textarea { font-size: 16px !important; }
+}
+
+/* آیکن‌های صفحه‌ی تماس: قاب بزرگ‌تر و نکته‌های فرم داخل قاب Ivory */
+.bgl-wa .bgl-wa__ic { width: 48px; height: 48px; border-radius: 12px; }
+.bgl-wa .bgl-wa__ic .bgl-icon { width: 28px; height: 28px; stroke-width: 1.6; }
+.bgl-fm__hint li { align-items: center; }
+.bgl-fm__hint .bgl-icon { width: 36px; height: 36px; padding: 8px; margin-top: 0; background: #fff1e2; border: 1px solid rgba(195, 141, 106, .35); border-radius: 10px; color: #000; }
+.bgl-fm__hint .bgl-icon [fill-opacity] { fill: #c38d6a; fill-opacity: .4; }
+
+/* آکاردئون پرسش‌ها: آیتم‌های جدا با فضای تنفس */
+.bgl-fq { display: flex; flex-direction: column; gap: 12px; border-top: 0; }
+.bgl-fq__it { padding: 0 24px; background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; transition: border-color .2s ease, background-color .2s ease; }
+.bgl-fq__it[open] { background: #fafafa; border-color: #cfcfcf; }
+.bgl-fq .bgl-fq__it summary { padding: 20px 0; font-size: 15px; line-height: 26px; }
+.bgl-fq__a { max-width: 720px; padding: 0 0 22px; font-size: 14px; line-height: 28px; }
+.bgl-fq__pm { width: 30px; height: 30px; border-radius: 8px; }
+.bgl-fq__note { margin-top: 20px; }
+@media (max-width: 767px) {
+	.bgl-fq { gap: 10px; }
+	.bgl-fq__it { padding: 0 16px; }
+	.bgl-fq .bgl-fq__it summary { padding: 16px 0; font-size: 14px; line-height: 24px; }
+	.bgl-fq__a { padding-bottom: 18px; line-height: 26px; }
+}

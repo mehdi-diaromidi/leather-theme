@@ -1,0 +1,1768 @@
+/* Bagllet Widgets — توکن‌ها از شناسنامه استایل bagllet.ir */
+.bgl-story,
+.bgl-ig {
+	--bgl-black: #000000;
+	--bgl-white: #ffffff;
+	--bgl-clay: #c38d6a;
+	--bgl-clay-hover: #bb7d54;
+	--bgl-sand: #ceb89b;
+	--bgl-ivory: #fff1e2;
+	--bgl-on-dark-muted: #b5b5b5;
+	--bgl-muted-ivory: #4b5563;
+	--bgl-border-dark: #2a2a2a;
+	--bgl-ease: cubic-bezier(.2, .8, .2, 1);
+	box-sizing: border-box;
+	font-family: inherit;
+	letter-spacing: 0;
+	text-align: start;
+}
+
+.bgl-story *,
+.bgl-story *::before,
+.bgl-story *::after,
+.bgl-ig *,
+.bgl-ig *::before,
+.bgl-ig *::after {
+	box-sizing: border-box;
+	letter-spacing: 0;
+}
+
+/* ---------- دکمه‌ها و لینک ---------- */
+.bgl-btn,
+.bgl-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background-color 150ms var(--bgl-ease), color 150ms var(--bgl-ease), border-color 150ms var(--bgl-ease);
+}
+
+.bgl-btn {
+	min-height: 44px;
+	padding: 0 24px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+}
+
+.bgl-btn .bgl-icon,
+.bgl-link .bgl-icon {
+	flex: none;
+}
+
+.bgl-btn--clay,
+.bgl-btn--clay:visited {
+	background: var(--bgl-clay);
+	color: var(--bgl-black);
+}
+
+.bgl-btn--clay:hover,
+.bgl-btn--clay:focus {
+	background: var(--bgl-clay-hover);
+	color: var(--bgl-black);
+}
+
+.bgl-btn--outline,
+.bgl-btn--outline:visited {
+	background: transparent;
+	border-color: var(--bgl-clay);
+	color: var(--bgl-clay);
+}
+
+.bgl-btn--outline:hover,
+.bgl-btn--outline:focus {
+	background: var(--bgl-clay);
+	color: var(--bgl-black);
+}
+
+.bgl-btn--dark,
+.bgl-btn--dark:visited {
+	background: var(--bgl-black);
+	color: var(--bgl-white);
+}
+
+.bgl-btn--dark:hover,
+.bgl-btn--dark:focus {
+	background: #1f1f1f;
+	color: var(--bgl-white);
+}
+
+.bgl-link,
+.bgl-link:visited {
+	min-height: 44px;
+	color: var(--bgl-white);
+}
+
+.bgl-link:hover,
+.bgl-link:focus {
+	color: var(--bgl-sand);
+}
+
+/* فلش «ادامه» در RTL به چپ اشاره می‌کند و در LTR آینه می‌شود */
+[dir="ltr"] .bgl-icon--arrow,
+.ltr .bgl-icon--arrow {
+	transform: scaleX(-1);
+}
+
+.bgl-story a:focus-visible {
+	outline: 2px solid var(--bgl-clay);
+	outline-offset: 2px;
+}
+
+.bgl-ig a:focus-visible {
+	outline: 2px solid var(--bgl-black);
+	outline-offset: 2px;
+}
+
+/* ---------- داستان برند: موبایل (پایه) ---------- */
+.bgl-story {
+	position: relative;
+}
+
+.bgl-story__box {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 24px;
+	background: var(--bgl-black);
+	border-radius: 12px;
+	color: var(--bgl-white);
+}
+
+.bgl-story--has-stats .bgl-story__box {
+	padding-bottom: 56px;
+}
+
+.bgl-story__media {
+	position: relative;
+	order: -1;
+	width: 100%;
+	max-width: 340px;
+	margin: 0 auto 28px;
+	padding-inline-end: 12px;
+	padding-top: 12px;
+}
+
+.bgl-story__main {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	border-radius: 12px;
+}
+
+.bgl-story__main img,
+.bgl-story__detail img {
+	position: relative;
+	z-index: 1;
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+.bgl-story--stitch .bgl-story__main::before {
+	content: "";
+	position: absolute;
+	inset-block: -12px 12px;
+	inset-inline: 12px -12px;
+	border: 1.5px dashed var(--bgl-clay);
+	border-radius: 12px;
+}
+
+.bgl-story__detail {
+	position: absolute;
+	z-index: 2;
+	bottom: -28px;
+	inset-inline-start: -8px;
+	width: 38%;
+	aspect-ratio: 1;
+	border: 6px solid var(--bgl-black);
+	border-radius: 12px;
+	background: var(--bgl-black);
+}
+
+.bgl-story__detail img {
+	border-radius: 6px;
+}
+
+.bgl-story__tag {
+	position: absolute;
+	z-index: 3;
+	top: 28px;
+	inset-inline-start: -8px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 28px;
+	padding: 0 12px;
+	background: var(--bgl-sand);
+	border-radius: 6px;
+	color: var(--bgl-black);
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 700;
+}
+
+.bgl-story__tag::before {
+	content: "";
+	order: 2;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--bgl-black);
+}
+
+.bgl-story__eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 0 0 12px;
+	color: var(--bgl-sand);
+	font-size: 13px;
+	line-height: 22px;
+	font-weight: 300;
+}
+
+.bgl-story__eyebrow::before {
+	content: "";
+	flex: none;
+	width: 32px;
+	height: 2px;
+	background: var(--bgl-clay);
+}
+
+.bgl-story__title {
+	margin: 0;
+	color: var(--bgl-white);
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
+}
+
+.bgl-story__title span {
+	display: block;
+}
+
+.bgl-story__title .bgl-story__title-accent {
+	color: var(--bgl-clay);
+}
+
+.bgl-story__desc {
+	max-width: 640px;
+	margin-top: 16px;
+	color: var(--bgl-on-dark-muted);
+	font-size: 15px;
+	line-height: 27px;
+}
+
+.bgl-story__desc p {
+	margin: 0 0 12px;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.bgl-story__desc p:last-child {
+	margin-bottom: 0;
+}
+
+.bgl-story__actions {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 24px;
+}
+
+.bgl-story__patch {
+	position: relative;
+	z-index: 4;
+	margin: -32px 16px 0;
+	padding: 8px;
+	background: var(--bgl-ivory);
+	border-radius: 10px;
+	color: var(--bgl-black);
+}
+
+.bgl-story__stats {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-radius: 6px;
+}
+
+.bgl-story--stitch .bgl-story__stats {
+	border: 1.5px dashed var(--bgl-clay);
+}
+
+.bgl-story__stat {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 72px;
+	margin: 0;
+	padding: 12px 16px;
+}
+
+.bgl-story__stat + .bgl-story__stat {
+	border-top: 1px solid rgba(0, 0, 0, .12);
+}
+
+.bgl-story__stat-num {
+	flex: none;
+	min-width: 64px;
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
+}
+
+.bgl-story__stat-icon {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 64px;
+	font-size: 28px;
+	line-height: 1;
+}
+
+.bgl-story__stat-icon svg {
+	width: 28px;
+	height: 28px;
+	fill: currentColor;
+}
+
+.bgl-story__stat-body strong {
+	display: block;
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 700;
+}
+
+.bgl-story__stat-body small {
+	display: block;
+	color: var(--bgl-muted-ivory);
+	font-size: 13px;
+	line-height: 22px;
+	font-weight: 300;
+}
+
+/* ---------- داستان برند: دسکتاپ ---------- */
+@media (min-width: 1024px) {
+	.bgl-story {
+		--bgl-media-w: 360px;
+		--bgl-main-w: 260px;
+		--bgl-detail-w: 132px;
+		padding-top: 40px;
+	}
+
+	.bgl-story--no-media {
+		padding-top: 0;
+	}
+
+	.bgl-story--has-stats {
+		padding-bottom: 68px;
+	}
+
+	.bgl-story__box {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) var(--bgl-media-w);
+		align-items: start;
+		gap: 32px;
+		padding: 44px 40px 48px;
+	}
+
+	.bgl-story--no-media .bgl-story__box {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bgl-story--has-stats .bgl-story__box {
+		padding-bottom: 96px;
+	}
+
+	.bgl-story__media {
+		order: 0;
+		width: var(--bgl-media-w);
+		max-width: none;
+		margin: -84px 0 0;
+		padding: 0;
+	}
+
+	.bgl-story__main {
+		width: var(--bgl-main-w);
+		margin-inline-start: auto;
+	}
+
+	.bgl-story__detail {
+		bottom: -60px;
+		inset-inline-start: 0;
+		width: calc(var(--bgl-detail-w) + 12px);
+	}
+
+	.bgl-story__tag {
+		top: 20px;
+		inset-inline-start: calc(var(--bgl-media-w) - var(--bgl-main-w) - 48px);
+	}
+
+	.bgl-story__title {
+		font-size: 32px;
+		line-height: 46px;
+	}
+
+	.bgl-story__desc {
+		font-size: 16px;
+		line-height: 30px;
+	}
+
+	.bgl-story__actions {
+		flex-direction: row;
+		align-items: center;
+		gap: 24px;
+	}
+
+	.bgl-btn,
+	.bgl-link {
+		font-size: 15px;
+		line-height: 24px;
+	}
+
+	.bgl-story__patch {
+		position: absolute;
+		bottom: 0;
+		inset-inline-start: 40px;
+		inset-inline-end: calc(var(--bgl-media-w) + 40px + 32px);
+		margin: 0;
+	}
+
+	.bgl-story--no-media .bgl-story__patch {
+		inset-inline-end: 40px;
+	}
+
+	.bgl-story__stats {
+		flex-direction: row;
+		min-height: 104px;
+	}
+
+	.bgl-story__stat {
+		flex: 1 1 0;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 0;
+		min-width: 0;
+	}
+
+	.bgl-story__stat-num,
+	.bgl-story__stat-icon {
+		min-width: 0;
+	}
+
+	.bgl-story__stat + .bgl-story__stat {
+		border-top: 0;
+		border-inline-start: 1px solid rgba(0, 0, 0, .12);
+	}
+}
+
+@media (min-width: 1280px) {
+	.bgl-story {
+		--bgl-media-w: 436px;
+		--bgl-main-w: 300px;
+		--bgl-detail-w: 156px;
+	}
+
+	.bgl-story__box {
+		padding-inline: 56px 48px;
+	}
+
+	.bgl-story__patch {
+		inset-inline-start: 56px;
+		inset-inline-end: calc(var(--bgl-media-w) + 48px + 32px);
+	}
+
+	.bgl-story--no-media .bgl-story__patch {
+		inset-inline-end: 56px;
+	}
+
+	.bgl-story__stat {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 12px;
+	}
+
+	.bgl-story__stat-num {
+		font-size: 32px;
+		line-height: 46px;
+	}
+
+	.bgl-story__stat-icon {
+		font-size: 32px;
+	}
+
+	.bgl-story__stat-icon svg {
+		width: 32px;
+		height: 32px;
+	}
+}
+
+/* ---------- اینستاگرام: موبایل (پایه) ---------- */
+.bgl-ig {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 32px 24px 0;
+	background: var(--bgl-ivory);
+	border-radius: 12px;
+	color: var(--bgl-black);
+}
+
+.bgl-ig--no-media {
+	padding-bottom: 32px;
+}
+
+.bgl-ig__eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 0;
+	color: var(--bgl-muted-ivory);
+	font-size: 13px;
+	line-height: 22px;
+	font-weight: 300;
+}
+
+.bgl-ig__eyebrow::before {
+	content: "";
+	flex: none;
+	width: 32px;
+	height: 2px;
+	background: var(--bgl-clay);
+}
+
+.bgl-ig__title {
+	margin: 8px 0 0;
+	color: var(--bgl-black);
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
+}
+
+.bgl-ig__handle {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	min-height: 36px;
+	margin-top: 12px;
+	padding: 0 12px;
+	background: var(--bgl-black);
+	border-radius: 8px;
+	color: var(--bgl-clay);
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 700;
+}
+
+.bgl-ig__stats {
+	display: flex;
+	margin: 24px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bgl-ig__stats li {
+	margin: 0;
+	padding-inline-end: 24px;
+}
+
+.bgl-ig__stats li + li {
+	padding-inline-start: 24px;
+	border-inline-start: 1px solid rgba(0, 0, 0, .12);
+}
+
+.bgl-ig__stats strong {
+	display: block;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 700;
+}
+
+.bgl-ig__stats small {
+	display: block;
+	color: var(--bgl-muted-ivory);
+	font-size: 13px;
+	line-height: 22px;
+	font-weight: 300;
+}
+
+.bgl-ig__desc {
+	max-width: 640px;
+	margin-top: 16px;
+	color: var(--bgl-muted-ivory);
+	font-size: 15px;
+	line-height: 27px;
+}
+
+.bgl-ig__desc p {
+	margin: 0 0 12px;
+	color: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.bgl-ig__desc p:last-child {
+	margin-bottom: 0;
+}
+
+.bgl-ig .bgl-btn {
+	width: 100%;
+	margin-top: 20px;
+}
+
+/* گوشی و صفحه رنگی */
+.bgl-ig__media {
+	position: relative;
+	width: 100%;
+	max-width: 360px;
+	height: 320px;
+	margin: 0 auto;
+	overflow: hidden;
+	border-radius: 12px 12px 0 0;
+}
+
+.bgl-ig__plate {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, #c38d6a, #ceb89b);
+}
+
+.bgl-ig__plate::after {
+	content: "";
+	position: absolute;
+	inset: 12px;
+	border: 1.5px dashed rgba(0, 0, 0, .35);
+	border-radius: 6px;
+}
+
+.bgl-ig__phone {
+	position: absolute;
+	z-index: 2;
+	top: 24px;
+	inset-inline: 0;
+	width: 220px;
+	height: 360px;
+	margin-inline: auto;
+	overflow: hidden;
+}
+
+.bgl-ig__phone a {
+	display: block;
+	height: 100%;
+}
+
+.bgl-ig__phone img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	object-position: top center;
+	border-radius: 12px 12px 0 0;
+}
+
+.bgl-ig__phone--frame {
+	padding: 8px 8px 0;
+	background: var(--bgl-black);
+	border-radius: 34px 34px 0 0;
+}
+
+.bgl-ig__phone--frame img {
+	border-radius: 26px 26px 0 0;
+}
+
+/* کارت‌های شناور فقط در دسکتاپ */
+.bgl-ig__card {
+	display: none;
+}
+
+/* ---------- اینستاگرام: دسکتاپ ---------- */
+@media (min-width: 1024px) {
+	.bgl-ig {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 440px;
+		align-items: stretch;
+		gap: 40px;
+		padding: 0 56px;
+	}
+
+	.bgl-ig--no-media {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bgl-ig__text {
+		padding: 40px 0;
+	}
+
+	.bgl-ig__title {
+		font-size: 32px;
+		line-height: 46px;
+	}
+
+	.bgl-ig__stats strong {
+		font-size: 24px;
+		line-height: 36px;
+	}
+
+	.bgl-ig__stats li {
+		padding-inline-end: 28px;
+	}
+
+	.bgl-ig__stats li + li {
+		padding-inline-start: 28px;
+	}
+
+	.bgl-ig__desc {
+		font-size: 15px;
+		line-height: 28px;
+	}
+
+	.bgl-ig .bgl-btn {
+		width: auto;
+	}
+
+	.bgl-ig__media {
+		height: auto;
+		min-height: 436px;
+		max-width: none;
+		margin: 0;
+		overflow: visible;
+		border-radius: 0;
+		clip-path: inset(-60px 0 0 0 round 0 0 12px 12px);
+	}
+
+	.bgl-ig__plate {
+		inset-block: 0;
+		inset-inline: 48px;
+		border-radius: 12px 12px 0 0;
+	}
+
+	.bgl-ig__plate::after {
+		inset: 16px;
+	}
+
+	.bgl-ig__phone {
+		top: -16px;
+		bottom: 0;
+		width: 248px;
+		height: auto;
+		overflow: visible;
+		box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
+	}
+
+	.bgl-ig__phone a {
+		height: 100%;
+	}
+
+	.bgl-ig__card {
+		position: absolute;
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		max-width: 240px;
+		padding: 8px;
+		background: var(--bgl-white);
+		border-radius: 10px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+	}
+
+	.bgl-ig__card--1 {
+		top: 70px;
+		inset-inline-start: 0;
+	}
+
+	.bgl-ig__card--2 {
+		bottom: 150px;
+		inset-inline-end: 0;
+	}
+
+	.bgl-ig__card-tag {
+		position: absolute;
+		top: -10px;
+		inset-inline-start: 10px;
+		min-height: 22px;
+		padding: 0 8px;
+		background: var(--bgl-sand);
+		border-radius: 6px;
+		color: var(--bgl-black);
+		font-size: 12px;
+		line-height: 22px;
+		font-weight: 700;
+	}
+
+	.bgl-ig__card-img {
+		flex: none;
+		width: 48px;
+		height: 48px;
+		overflow: hidden;
+		border-radius: 6px;
+	}
+
+	.bgl-ig__card-img img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		max-width: none;
+		object-fit: cover;
+	}
+
+	.bgl-ig__card-body strong {
+		display: block;
+		color: var(--bgl-black);
+		font-size: 14px;
+		line-height: 22px;
+		font-weight: 700;
+	}
+
+	.bgl-ig__card-body small {
+		display: block;
+		color: var(--bgl-muted-ivory);
+		font-size: 13px;
+		line-height: 20px;
+		font-weight: 300;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bgl-btn,
+	.bgl-link {
+		transition: none;
+	}
+}
+
+/* ===== کارت دسته‌بندی (طرح B) ===== */
+.bgl-cat {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	height: 100%;
+	padding: 16px;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	border-radius: 10px;
+	color: #000;
+	font-family: inherit;
+	letter-spacing: 0;
+}
+.bgl-cat *,
+.bgl-cat *::before,
+.bgl-cat *::after {
+	box-sizing: border-box;
+	letter-spacing: 0;
+}
+.bgl-cat__media {
+	position: relative;
+	flex: 1 1 auto;
+	min-height: 200px;
+	background: #fafafa;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.bgl-cat__media img {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 12px;
+	object-fit: contain;
+	filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .18));
+}
+.bgl-cat__tag {
+	position: absolute;
+	inset-block-start: 12px;
+	inset-inline-start: 12px;
+	z-index: 1;
+	padding: 3px 10px;
+	background: #ceb89b;
+	border-radius: 6px;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 700;
+	color: #000;
+}
+.bgl-cat__title {
+	margin: 0;
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
+	color: #000;
+}
+.bgl-cat__desc {
+	margin: 2px 0 0;
+	font-size: 14px;
+	line-height: 24px;
+	color: #6b7280;
+}
+.bgl-cat__cta,
+.bgl-cat__cta:visited {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 44px;
+	background: #000;
+	border-radius: 8px;
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #fff;
+	text-decoration: none;
+	transition: background-color .15s ease;
+}
+.bgl-cat__cta:hover,
+.bgl-cat__cta:focus {
+	background: #141414;
+	color: #fff;
+}
+.bgl-cat__cta:focus-visible {
+	outline: 2px solid #000;
+	outline-offset: 2px;
+}
+.bgl-cat__cta .bgl-icon {
+	flex: none;
+}
+@media (max-width: 1024px) {
+	.bgl-cat { height: auto; }
+	.bgl-cat__media { flex: none; min-height: 0; aspect-ratio: 4 / 3; }
+}
+@media (max-width: 767px) {
+	.bgl-cat__title { font-size: 20px; line-height: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.bgl-cat__cta { transition: none; }
+}
+
+/* ===== تیتر بخش (خط تزئینی Warm Clay ۳۲×۲) ===== */
+.bgl-sec {
+	position: relative;
+	margin: 0 0 24px;
+	border-bottom: 1px solid #e6e6e6;
+	font-family: inherit;
+	letter-spacing: 0;
+}
+.bgl-sec::after {
+	content: "";
+	position: absolute;
+	inset-inline-start: 0;
+	inset-block-end: -1px;
+	width: 32px;
+	height: 2px;
+	background: #c38d6a;
+}
+.bgl-sec__title {
+	margin: 0;
+	padding: 0 0 10px;
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
+	letter-spacing: 0;
+	color: #000;
+}
+@media (max-width: 767px) {
+	.bgl-sec__title { font-size: 20px; line-height: 30px; }
+}
+
+/* ===== هیرو اسلایدر ===== */
+.bgl-hero {
+	--bgl-h: 600px;
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+	background: #000;
+	border-radius: 12px;
+	color: #fff;
+	font-family: inherit;
+	letter-spacing: 0;
+}
+.bgl-hero *,
+.bgl-hero *::before,
+.bgl-hero *::after {
+	box-sizing: border-box;
+	letter-spacing: 0;
+}
+.bgl-hero__track {
+	display: grid;
+	touch-action: pan-y;
+}
+.bgl-hero__slide {
+	grid-area: 1 / 1;
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: var(--bgl-h);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .6s ease, visibility 0s linear .6s;
+}
+.bgl-hero__slide.is-active {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity .6s ease;
+}
+.bgl-hero__media {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	inset-inline-end: 0;
+	width: 66%;
+	overflow: hidden;
+	background: #000;
+}
+.bgl-hero__slide.is-end .bgl-hero__media {
+	inset-inline-end: auto;
+	inset-inline-start: 0;
+}
+.bgl-hero__media picture {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.bgl-hero__media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: var(--px-d, 50%) 50%;
+}
+.bgl-hero__shade {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(270deg, #000 0, rgba(0, 0, 0, .88) 30%, rgba(0, 0, 0, 0) 62%);
+}
+.bgl-hero__slide.is-end .bgl-hero__shade {
+	background: linear-gradient(90deg, #000 0, rgba(0, 0, 0, .88) 30%, rgba(0, 0, 0, 0) 62%);
+}
+[dir="ltr"] .bgl-hero__shade {
+	background: linear-gradient(90deg, #000 0, rgba(0, 0, 0, .88) 30%, rgba(0, 0, 0, 0) 62%);
+}
+[dir="ltr"] .bgl-hero__slide.is-end .bgl-hero__shade {
+	background: linear-gradient(270deg, #000 0, rgba(0, 0, 0, .88) 30%, rgba(0, 0, 0, 0) 62%);
+}
+.bgl-hero__content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: min(600px, 100%);
+	padding: 48px 64px;
+}
+.bgl-hero__slide.is-end .bgl-hero__content {
+	margin-inline-start: auto;
+}
+.bgl-hero__tag {
+	display: inline-block;
+	padding: 3px 10px;
+	background: #b98564;
+	border-radius: 6px;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 700;
+	color: #000;
+}
+.bgl-hero__title {
+	margin: 20px 0 0;
+	font-size: 56px;
+	line-height: 80px;
+	font-weight: 700;
+	color: #fff;
+}
+.bgl-hero__title span {
+	display: block;
+	color: #c38d6a;
+}
+.bgl-hero__desc {
+	max-width: 480px;
+	margin: 16px 0 0;
+	font-size: 18px;
+	line-height: 32px;
+	color: #b5b5b5;
+}
+.bgl-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 16px 28px;
+	margin-top: 32px;
+}
+.bgl-hero__cta,
+.bgl-hero__cta:visited {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	height: 52px;
+	padding: 0 28px;
+	background: #ffffff61 !important;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 241, 226, .7) !important;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), inset 0 -1px 0 rgba(0, 0, 0, .08);
+	border-radius: 8px;
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #fff !important;
+	text-decoration: none;
+}
+/* بدون تغییر رنگ روی هاور؛ فقط فلش حرکت می‌کند */
+.bgl-hero__cta:hover,
+.bgl-hero__cta:focus {
+	background: #ffffff61 !important;
+	color: #fff !important;
+}
+.bgl-hero__cta .bgl-icon { transition: transform .25s cubic-bezier(.2, .7, .2, 1); }
+.bgl-hero__cta:hover .bgl-icon,
+.bgl-hero__cta:focus-visible .bgl-icon { animation: bgl-hero-arrow .9s ease-in-out infinite; }
+@keyframes bgl-hero-arrow {
+	0%, 100% { transform: translateX(0); }
+	50% { transform: translateX(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.bgl-hero__cta:hover .bgl-icon,
+	.bgl-hero__cta:focus-visible .bgl-icon { animation: none; transform: translateX(-4px); }
+}
+.bgl-hero__cta:focus-visible,
+.bgl-hero__link:focus-visible,
+.bgl-hero__card:focus-visible,
+.bgl-hero__nav:focus-visible,
+.bgl-hero__bar:focus-visible {
+	outline: 2px solid #c38d6a;
+	outline-offset: 2px;
+}
+.bgl-hero__link,
+.bgl-hero__link:visited {
+	font-size: 15px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 1px solid #2a2a2a;
+	padding-bottom: 2px;
+	transition: color .15s ease, border-color .15s ease;
+}
+.bgl-hero__link:hover {
+	color: #ceb89b;
+	border-color: #ceb89b;
+}
+
+/* باکس‌های شناور */
+.bgl-hero__boxes {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	pointer-events: none;
+}
+.bgl-hero__box {
+	position: absolute;
+	pointer-events: auto;
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity .5s ease .35s, transform .5s ease .35s;
+}
+.bgl-hero__box:nth-child(2) { transition-delay: .5s; }
+.bgl-hero__box:nth-child(3) { transition-delay: .65s; }
+.bgl-hero__slide.is-active .bgl-hero__box {
+	opacity: 1;
+	transform: none;
+}
+.bgl-hero__box[data-pos="tl"] { top: 40px; left: 48px; }
+.bgl-hero__box[data-pos="tr"] { top: 40px; right: 48px; }
+.bgl-hero__box[data-pos="ml"] { top: 50%; left: 48px; margin-top: -32px; }
+.bgl-hero__box[data-pos="mr"] { top: 50%; right: 48px; margin-top: -32px; }
+.bgl-hero__box[data-pos="bl"] { bottom: 72px; left: 48px; }
+.bgl-hero__box[data-pos="br"] { bottom: 72px; right: 48px; }
+.bgl-hero__card,
+.bgl-hero__card:visited {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	max-width: 260px;
+	padding: 10px 14px;
+	background: rgba(20, 20, 20, .74);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	border: 1px solid #2a2a2a;
+	border-radius: 10px;
+	color: #fff;
+	text-decoration: none;
+	transition: border-color .15s ease;
+}
+a.bgl-hero__card:hover {
+	border-color: #c38d6a;
+}
+.bgl-hero__card-ic {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+	width: 36px;
+	height: 36px;
+	background: #000;
+	border: 1px solid #2a2a2a;
+	border-radius: 8px;
+	color: #c38d6a;
+}
+.bgl-hero__card-ic .bgl-icon {
+	width: 20px;
+	height: 20px;
+}
+.bgl-hero__card-tx {
+	display: flex;
+	flex-direction: column;
+}
+.bgl-hero__card-tx b {
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 700;
+	color: #fff;
+}
+.bgl-hero__card-tx small {
+	font-size: 13px;
+	line-height: 20px;
+	font-weight: 300;
+	color: #b5b5b5;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.bgl-hero__slide.is-active .bgl-hero__card {
+		animation: bgl-float 7s ease-in-out infinite;
+	}
+	.bgl-hero__slide.is-active .bgl-hero__box:nth-child(2) .bgl-hero__card { animation-delay: -2.5s; }
+	.bgl-hero__slide.is-active .bgl-hero__box:nth-child(3) .bgl-hero__card { animation-delay: -4.5s; }
+}
+@keyframes bgl-float {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
+}
+
+/* کنترل‌ها */
+.bgl-hero__nav {
+	position: absolute;
+	top: 50%;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	margin-top: -22px;
+	padding: 0;
+	background: rgba(0, 0, 0, .5);
+	border: 1px solid #2a2a2a;
+	border-radius: 8px;
+	color: #fff;
+	cursor: pointer;
+	transition: border-color .15s ease;
+}
+.bgl-hero__nav:hover {
+	border-color: #c38d6a;
+}
+.bgl-hero__nav--prev { inset-inline-start: 12px; }
+.bgl-hero__nav--next { inset-inline-end: 12px; }
+[dir="ltr"] .bgl-hero__nav .bgl-icon { transform: scaleX(-1); }
+.bgl-hero__bars {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 20px;
+	z-index: 5;
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	pointer-events: none;
+}
+.bgl-hero__bar {
+	width: 48px;
+	padding: 8px 0;
+	background: none;
+	border: 0;
+	cursor: pointer;
+	pointer-events: auto;
+}
+.bgl-hero__bar-in {
+	position: relative;
+	display: block;
+	height: 3px;
+	overflow: hidden;
+	background: rgba(0, 0, 0, .45);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .24);
+	border-radius: 2px;
+}
+.bgl-hero__bar-in::after {
+	content: "";
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 0;
+	width: 0;
+	background: #c38d6a;
+}
+.bgl-hero__bar.is-active .bgl-hero__bar-in::after {
+	width: 100%;
+}
+.bgl-hero.is-auto .bgl-hero__bar.is-active .bgl-hero__bar-in::after {
+	width: 0;
+	animation: bgl-fill var(--bgl-dur, 6000ms) linear forwards;
+}
+.bgl-hero.is-paused .bgl-hero__bar.is-active .bgl-hero__bar-in::after {
+	animation-play-state: paused;
+}
+@keyframes bgl-fill {
+	from { width: 0; }
+	to { width: 100%; }
+}
+
+@media (max-width: 1024px) {
+	.bgl-hero__title { font-size: 40px; line-height: 56px; }
+	.bgl-hero__content { padding: 40px 32px; }
+	.bgl-hero__box[data-pos="tl"], .bgl-hero__box[data-pos="ml"], .bgl-hero__box[data-pos="bl"] { left: 24px; }
+	.bgl-hero__box[data-pos="tr"], .bgl-hero__box[data-pos="mr"], .bgl-hero__box[data-pos="br"] { right: 24px; }
+}
+
+/* موبایل: تصویر بالا، متن و باکس‌ها (به‌صورت چیپ) پایین، نوار پیشرفت بالای تصویر */
+@media (max-width: 767px) {
+	.bgl-hero__slide {
+		flex-direction: column;
+		align-items: stretch;
+		min-height: 0;
+	}
+	.bgl-hero__media {
+		position: relative;
+		inset: auto;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		flex: none;
+	}
+	.bgl-hero__slide.is-end .bgl-hero__media { inset: auto; }
+	.bgl-hero__media img { object-position: var(--px-m, 40%) 50%; }
+	.bgl-hero__shade,
+	.bgl-hero__slide.is-end .bgl-hero__shade,
+	[dir="ltr"] .bgl-hero__shade,
+	[dir="ltr"] .bgl-hero__slide.is-end .bgl-hero__shade {
+		background: linear-gradient(0deg, #000 0, rgba(0, 0, 0, .6) 26%, rgba(0, 0, 0, 0) 52%);
+	}
+	.bgl-hero__content {
+		width: 100%;
+		margin-top: -56px;
+		padding: 0 20px 20px;
+	}
+	.bgl-hero__slide.is-end .bgl-hero__content { margin-inline-start: 0; }
+	.bgl-hero__title { margin-top: 10px; font-size: 32px; line-height: 44px; }
+	.bgl-hero__desc { margin-top: 8px; font-size: 14px; line-height: 24px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+	.bgl-hero__actions { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 18px; }
+	.bgl-hero__cta { width: 100%; }
+	.bgl-hero__link { align-self: center; }
+	.bgl-hero__boxes {
+		position: static;
+		display: none;
+		flex-wrap: wrap;
+		gap: 8px;
+		padding: 0 20px 20px;
+		pointer-events: auto;
+	}
+	.bgl-hero--mbx .bgl-hero__boxes { display: flex; }
+	.bgl-hero__box,
+	.bgl-hero__box[data-pos] {
+		position: static;
+		margin: 0;
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	.bgl-hero__card { max-width: none; padding: 8px 12px; animation: none !important; }
+	.bgl-hero__card-ic { width: 32px; height: 32px; }
+	.bgl-hero__card-tx small { display: none; }
+	.bgl-hero__nav { display: none; }
+	.bgl-hero__bars {
+		bottom: auto;
+		top: 10px;
+		inset-inline: 16px;
+		gap: 6px;
+	}
+	.bgl-hero__bar { flex: 1; width: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bgl-hero__slide,
+	.bgl-hero__slide.is-active,
+	.bgl-hero__box { transition: none; }
+}
+
+/* ===== هیرو اسلایدر: مقاوم‌سازی در برابر استایل قالب (Woodmart/Elementor) ===== */
+.bgl-hero .bgl-hero__slide { height: var(--bgl-h); min-height: 0; }
+.bgl-hero .bgl-hero__media { overflow: hidden; }
+.bgl-hero .bgl-hero__media picture { display: block !important; width: 100% !important; height: 100% !important; }
+.bgl-hero .bgl-hero__media img {
+	position: absolute !important;
+	inset: 0 !important;
+	display: block !important;
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none !important;
+	max-height: none !important;
+	margin: 0 !important;
+	object-fit: cover !important;
+	object-position: var(--px-d, 50%) var(--py, 8%) !important;
+}
+.bgl-hero .bgl-hero__nav,
+.bgl-hero .bgl-hero__bar {
+	box-shadow: none !important;
+	text-transform: none !important;
+	min-width: 0 !important;
+	min-height: 0 !important;
+	line-height: 1 !important;
+	font-size: 0 !important;
+}
+.bgl-hero .bgl-hero__nav {
+	position: absolute !important;
+	top: 50% !important;
+	margin: -22px 0 0 !important;
+	z-index: 5 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 44px !important;
+	height: 44px !important;
+	padding: 0 !important;
+	background: rgba(0, 0, 0, .55) !important;
+	border: 1px solid #2a2a2a !important;
+	border-radius: 8px !important;
+	color: #fff !important;
+}
+.bgl-hero .bgl-hero__nav:hover { background: rgba(0, 0, 0, .8) !important; border-color: #c38d6a !important; color: #fff !important; }
+.bgl-hero .bgl-hero__nav .bgl-icon { display: block !important; width: 20px !important; height: 20px !important; stroke: currentColor !important; fill: none !important; }
+.bgl-hero .bgl-hero__bar {
+	width: 48px !important;
+	height: auto !important;
+	padding: 8px 0 !important;
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	color: transparent !important;
+}
+.bgl-hero .bgl-hero__bar:hover,
+.bgl-hero .bgl-hero__bar:focus { background: transparent !important; }
+.bgl-hero .bgl-hero__nav--prev { inset-inline-start: 12px !important; inset-inline-end: auto !important; }
+.bgl-hero .bgl-hero__nav--next { inset-inline-end: 12px !important; inset-inline-start: auto !important; }
+.bgl-hero .bgl-hero__bars { position: absolute !important; z-index: 5 !important; }
+.bgl-hero .bgl-hero__bar-in { display: block !important; width: 100% !important; min-width: 48px !important; height: 3px !important; background: rgba(255, 255, 255, .4) !important; box-shadow: 0 0 0 1px rgba(0, 0, 0, .35) !important; }
+@media (max-width: 767px) {
+	.bgl-hero .bgl-hero__nav { display: none !important; }
+	.bgl-hero .bgl-hero__slide { height: auto; }
+	.bgl-hero .bgl-hero__media { position: relative !important; width: 100% !important; aspect-ratio: 1 / 1; }
+	.bgl-hero .bgl-hero__media img { object-position: var(--px-m, 40%) 50% !important; }
+	.bgl-hero .bgl-hero__bar { flex: 1 1 0 !important; width: auto !important; }
+}
+
+/* ===== هیرو: فلش‌ها پایین-راست + انیمیشن‌های ساده ===== */
+.bgl-hero .bgl-hero__nav { top: auto !important; bottom: 24px !important; margin: 0 !important; width: 44px !important; height: 44px !important; }
+.bgl-hero .bgl-hero__nav--prev { inset-inline-start: auto !important; inset-inline-end: auto !important; left: auto !important; right: 24px !important; }
+.bgl-hero .bgl-hero__nav--next { inset-inline-start: auto !important; inset-inline-end: auto !important; left: auto !important; right: 76px !important; }
+.bgl-hero .bgl-hero__media { box-shadow: 2px 0 0 #000; }
+.bgl-hero .bgl-hero__slide.is-end .bgl-hero__media { box-shadow: -2px 0 0 #000; }
+/* ===== هیرو: ارتفاع کمتر ===== */
+.bgl-hero .bgl-hero__slide { height: min(var(--bgl-h), 520px); }
+@media (max-width: 767px) {
+	.bgl-hero .bgl-hero__slide { height: auto; }
+	.bgl-hero .bgl-hero__media { aspect-ratio: 4 / 3; }
+}
+@media (min-width: 768px) {
+	.bgl-hero .bgl-hero__content { padding-bottom: 96px; padding-top: 40px; }
+}
+/* جای باکس‌ها در هر اسلاید کمی فرق می‌کند (دسکتاپ) */
+@media (min-width: 768px) {
+	.bgl-hero__slide:nth-child(2) .bgl-hero__box[data-pos="tl"] { top: 96px; left: 104px; }
+	.bgl-hero__slide:nth-child(2) .bgl-hero__box[data-pos="bl"] { bottom: 116px; left: 56px; }
+	.bgl-hero__slide:nth-child(3) .bgl-hero__box[data-pos="tl"] { top: 60px; left: 150px; }
+	.bgl-hero__slide:nth-child(3) .bgl-hero__box[data-pos="bl"] { bottom: 64px; left: 110px; }
+	.bgl-hero__slide:nth-child(2) .bgl-hero__box[data-pos="tr"], .bgl-hero__slide:nth-child(2) .bgl-hero__box[data-pos="mr"], .bgl-hero__slide:nth-child(2) .bgl-hero__box[data-pos="br"] { right: 98px; }
+	.bgl-hero__slide:nth-child(3) .bgl-hero__box[data-pos="tr"], .bgl-hero__slide:nth-child(3) .bgl-hero__box[data-pos="mr"], .bgl-hero__slide:nth-child(3) .bgl-hero__box[data-pos="br"] { right: 148px; }
+}
+/* هیرو: فلش‌ها هم‌تراز با لبه‌ی راست متن */
+@media (min-width: 768px) {
+	.bgl-hero .bgl-hero__nav--prev { right: 64px !important; }
+	.bgl-hero .bgl-hero__nav--next { right: 116px !important; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+	.bgl-hero .bgl-hero__nav--prev { right: 32px !important; }
+	.bgl-hero .bgl-hero__nav--next { right: 84px !important; }
+}
+/* هیرو: سرتیتر متن (شماره‌ی اسلاید + تگ)، نکته‌ها */
+.bgl-hero .bgl-hero__meta { display: flex; align-items: center; gap: 14px; }
+.bgl-hero .bgl-hero__no { display: inline-flex; align-items: baseline; gap: 6px; font-size: 22px; line-height: 30px; font-weight: 300; color: #fff; }
+.bgl-hero .bgl-hero__no i { font-style: normal; font-size: 13px; line-height: 22px; color: #b5b5b5; }
+.bgl-hero .bgl-hero__meta::after { content: ""; order: 1; width: 40px; height: 1px; background: #2a2a2a; }
+.bgl-hero .bgl-hero__meta .bgl-hero__tag { order: 2; }
+.bgl-hero .bgl-hero__facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 20px 0 0; padding: 18px 0 0; border-top: 1px solid #2a2a2a; list-style: none; }
+.bgl-hero .bgl-hero__facts li { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; line-height: 24px; color: #fff; }
+.bgl-hero .bgl-hero__facts .bgl-icon { width: 18px; height: 18px; padding: 3px; background: #c38d6a; border-radius: 6px; color: #000; stroke-width: 2.5; }
+@media (min-width: 768px) {
+	.bgl-hero .bgl-hero__title { font-size: 52px; line-height: 70px; }
+	.bgl-hero .bgl-hero__actions { margin-top: 28px; }
+}
+@media (max-width: 767px) {
+	.bgl-hero .bgl-hero__facts { margin-top: 14px; padding-top: 12px; gap: 6px 14px; }
+	.bgl-hero .bgl-hero__facts li { font-size: 13px; }
+	.bgl-hero .bgl-hero__no { font-size: 18px; }
+}
+@media (min-width: 768px) {
+	.bgl-hero .bgl-hero__content { padding-top: 28px; padding-bottom: 84px; }
+	.bgl-hero .bgl-hero__title { margin-top: 12px; font-size: 44px; line-height: 60px; }
+	.bgl-hero .bgl-hero__desc { margin-top: 10px; font-size: 16px; line-height: 28px; }
+	.bgl-hero .bgl-hero__facts { margin-top: 14px; padding-top: 14px; }
+	.bgl-hero .bgl-hero__actions { margin-top: 20px; }
+}
+@media (min-width: 1025px) {
+	.bgl-hero .bgl-hero__content { width: min(660px, 100%); }
+	.bgl-hero .bgl-hero__desc { max-width: none; font-size: 15px; line-height: 26px; }
+}
+
+/* ===== شبکه‌ی دسته‌بندی ===== */
+.bgl-cg-w { box-sizing: border-box; width: 100%; max-width: 1280px; margin-inline: auto; padding: 48px 16px; font-family: inherit; letter-spacing: 0; }
+.bgl-cg-w *, .bgl-cg-w *::before, .bgl-cg-w *::after { box-sizing: border-box; letter-spacing: 0; }
+.bgl-cg-h { position: relative; margin-bottom: 24px; border-bottom: 1px solid #e6e6e6; }
+.bgl-cg-h::after { content: ""; position: absolute; inset-inline-start: 0; bottom: -1px; width: 32px; height: 2px; background: #c38d6a; }
+.bgl-cg-h h2 { margin: 0; padding-bottom: 10px; font-size: 24px; line-height: 36px; font-weight: 700; color: #000; }
+.bgl-cg { display: grid; grid-template-columns: 1.2fr 1.2fr 1.2fr 1fr; grid-auto-rows: 235px; grid-auto-flow: dense; gap: 16px; }
+.bgl-cg__t, .bgl-cg__t:visited { position: relative; display: block; overflow: hidden; background: #111; border-radius: 12px; color: #fff; text-decoration: none; }
+.bgl-cg__t.is-tall { grid-row: span 2; }
+.bgl-cg__ph { position: absolute; inset: 0; display: block; }
+.bgl-cg__ph img { position: absolute; inset: 0; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 18%); transition: transform .6s ease; }
+.bgl-cg__t:hover .bgl-cg__ph img { transform: scale(1.04); }
+.bgl-cg__t::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 0, 0, .86), rgba(0, 0, 0, .06) 58%); pointer-events: none; }
+.bgl-cg__no { position: absolute; z-index: 2; top: 16px; inset-inline-start: 18px; font-size: 14px; line-height: 22px; font-weight: 300; color: #fff; }
+.bgl-cg__ln { position: absolute; z-index: 2; inset-inline-start: 20px; bottom: 80px; width: 32px; height: 2px; background: #c38d6a; }
+.bgl-cg__in { position: absolute; z-index: 2; inset-inline: 20px; bottom: 20px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.bgl-cg__tx b { display: block; font-size: 20px; line-height: 30px; font-weight: 700; color: #fff; }
+.bgl-cg__t.is-tall .bgl-cg__tx b { font-size: 26px; line-height: 38px; }
+.bgl-cg__tx small { display: block; font-size: 13px; line-height: 22px; color: #b5b5b5; }
+.bgl-cg__go { flex: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #000; border: 1px solid #2a2a2a; border-radius: 10px; color: #c38d6a; transition: background-color .15s, color .15s; }
+.bgl-cg__t:hover .bgl-cg__go { background: #c38d6a; color: #000; }
+.bgl-cg__t:focus-visible { outline: 2px solid #c38d6a; outline-offset: 3px; }
+@media (max-width: 1024px) {
+	.bgl-cg { grid-template-columns: 1fr 1fr; grid-auto-rows: 300px; }
+	.bgl-cg__t.is-tall { grid-row: span 1; }
+	.bgl-cg__t.is-tall:first-child { grid-column: 1 / -1; grid-row: span 2; }
+}
+@media (max-width: 767px) {
+	.bgl-cg-w { padding: 32px 16px; }
+	.bgl-cg { grid-auto-rows: 240px; gap: 12px; }
+	.bgl-cg__tx b, .bgl-cg__t.is-tall .bgl-cg__tx b { font-size: 17px; line-height: 26px; }
+	.bgl-cg__in { inset-inline: 14px; bottom: 14px; }
+	.bgl-cg__ln { bottom: 70px; inset-inline-start: 14px; }
+	.bgl-cg__go { width: 34px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) { .bgl-cg__ph img, .bgl-cg__go { transition: none; } }
+
+/* ===== شبکه‌ی دسته‌بندی: موزاییک روشن ۹ تایی ===== */
+.bgl-cg--mosaic { grid-template-columns: repeat(12, 1fr); grid-auto-rows: 225px; gap: 18px; }
+.bgl-cg--mosaic .bgl-cg__t { grid-column: span 3; grid-row: span 1; background: #f0eeef; border: 1px solid #e6e6e6; }
+.bgl-cg--mosaic .bgl-cg__t:nth-child(3n) { grid-column: span 6; }
+.bgl-cg--mosaic .bgl-cg__t:nth-child(n+7) { grid-column: span 4; }
+.bgl-cg--mosaic .bgl-cg__t::after, .bgl-cg--mosaic .bgl-cg__no, .bgl-cg--mosaic .bgl-cg__ln, .bgl-cg--mosaic .bgl-cg__go { display: none; }
+.bgl-cg--mosaic .bgl-cg__ph { background: #f0eeef; }
+.bgl-cg--mosaic .bgl-cg__ph img { object-fit: cover; padding: 0; object-position: var(--fx, 50%) var(--fy, 50%); }
+.bgl-cg--mosaic .bgl-cg__in { inset-inline: auto; inset-inline-end: 14px; bottom: 14px; justify-content: flex-start; }
+.bgl-cg--mosaic .bgl-cg__tx { padding: 5px 14px; background: #fff; border: 1px solid #e6e6e6; border-radius: 8px; }
+.bgl-cg--mosaic .bgl-cg__tx b, .bgl-cg--mosaic .bgl-cg__t.is-tall .bgl-cg__tx b { font-size: 15px; line-height: 24px; color: #000; }
+.bgl-cg--mosaic .bgl-cg__tx small { color: #6b7280; font-size: 12px; line-height: 18px; }
+.bgl-cg--mosaic .bgl-cg__t:hover .bgl-cg__tx { border-color: #000; }
+@media (max-width: 1024px) {
+	.bgl-cg--mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 12px; }
+	.bgl-cg--mosaic .bgl-cg__t, .bgl-cg--mosaic .bgl-cg__t:nth-child(n+7) { grid-column: span 1; }
+	.bgl-cg--mosaic .bgl-cg__t:nth-child(3n) { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+	.bgl-cg--mosaic { grid-auto-rows: 160px; gap: 10px; }
+	.bgl-cg--mosaic .bgl-cg__in { inset-inline-end: 8px; bottom: 8px; }
+	.bgl-cg--mosaic .bgl-cg__tx { padding: 4px 10px; }
+	.bgl-cg--mosaic .bgl-cg__tx b, .bgl-cg--mosaic .bgl-cg__t.is-tall .bgl-cg__tx b { font-size: 13px; line-height: 20px; }
+}
+
+/* موزاییک: برچسب شیشه‌ای، فقط نام دسته، بدون حاشیه و سایه */
+.bgl-cg--mosaic .bgl-cg__tx {
+	background: rgba(255, 255, 255, .38);
+	-webkit-backdrop-filter: blur(10px) saturate(1.2);
+	backdrop-filter: blur(10px) saturate(1.2);
+	border: 0;
+	box-shadow: none;
+	border-radius: 8px;
+}
+.bgl-cg--mosaic .bgl-cg__tx small { display: none; }
+.bgl-cg--mosaic .bgl-cg__t:hover .bgl-cg__tx { border: 0; background: rgba(255, 255, 255, .55); }
+
+/* ===== اینستاگرام: طراحی تازه‌ی ستون متن ===== */
+@media (min-width: 768px) {
+	.bgl-ig .bgl-ig__text { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; }
+	.bgl-ig .bgl-ig__text::before { content: ""; position: absolute; z-index: -1; inset-inline-end: -40px; top: -40px; width: 220px; height: 220px; border: 1px dashed rgba(195, 141, 106, .55); border-radius: 50%; }
+	.bgl-ig .bgl-ig__text::after { content: ""; position: absolute; z-index: -1; inset-inline-end: 10px; top: 10px; width: 120px; height: 120px; border: 1px solid rgba(195, 141, 106, .35); border-radius: 50%; }
+	.bgl-ig .bgl-ig__eyebrow { font-size: 14px; font-weight: 700; color: #000; }
+	.bgl-ig .bgl-ig__title { margin: 14px 0 0; font-size: 40px; line-height: 58px; font-weight: 700; }
+	.bgl-ig .bgl-ig__handle { margin-top: 16px; min-height: 40px; padding: 0 16px; }
+	.bgl-ig .bgl-ig__stats { gap: 12px; margin-top: 28px; }
+	.bgl-ig .bgl-ig__stats li, .bgl-ig .bgl-ig__stats li + li { position: relative; min-width: 150px; padding: 18px 20px 14px; background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; }
+	.bgl-ig .bgl-ig__stats li::before { content: ""; position: absolute; top: 0; inset-inline-start: 20px; width: 32px; height: 2px; background: #c38d6a; }
+	.bgl-ig .bgl-ig__stats strong { font-size: 32px; line-height: 44px; font-weight: 700; }
+	.bgl-ig .bgl-ig__stats small { color: #6b7280; font-size: 14px; }
+	.bgl-ig .bgl-ig__desc { margin-top: 24px; padding-inline-start: 18px; border-inline-start: 2px solid #c38d6a; font-size: 16px; line-height: 30px; }
+	.bgl-ig .bgl-btn { width: auto; min-height: 52px; margin-top: 28px; padding: 0 28px; font-size: 15px; }
+}
+@media (max-width: 767px) {
+	.bgl-ig .bgl-ig__title { font-size: 30px; line-height: 44px; }
+	.bgl-ig .bgl-ig__stats li, .bgl-ig .bgl-ig__stats li + li { padding: 12px 14px; background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; }
+	.bgl-ig .bgl-ig__stats { gap: 10px; }
+	.bgl-ig .bgl-ig__stats strong { font-size: 24px; line-height: 34px; }
+	.bgl-ig .bgl-ig__desc { padding-inline-start: 14px; border-inline-start: 2px solid #c38d6a; }
+}
+.bgl-ig .bgl-ig__text::before, .bgl-ig .bgl-ig__text::after { display: none !important; }
+@media (min-width: 768px) {
+	.bgl-ig__plate { inset-block: -56px 0; }
+	.bgl-ig__phone { top: -16px; }
+}
+
+/* اینستاگرام: بدون صفحه‌ی چرمی، گوشی با گوشه‌ی بالایی ۱۰px */
+.bgl-ig__plate { display: none !important; }
+.bgl-ig__phone--frame { border-radius: 10px 10px 0 0; padding: 6px 6px 0; }
+.bgl-ig__phone--frame img { border-radius: 6px 6px 0 0; }
+
+/* دکمه‌ی دنبال‌کردن: حلقه‌ی استوری زنده + ضربان آیکن */
+@property --bgl-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.bgl-ig .bgl-btn--dark { position: relative; z-index: 0; isolation: isolate; }
+.bgl-ig .bgl-btn--dark::before {
+	content: "";
+	position: absolute;
+	z-index: -2;
+	inset: -3px;
+	border-radius: 11px;
+	background: conic-gradient(from var(--bgl-a), #c38d6a, #ceb89b, #fff1e2, #ceb89b, #c38d6a);
+}
+.bgl-ig .bgl-btn--dark::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	border-radius: 8px;
+	background: #000;
+}
+.bgl-ig .bgl-btn--dark .bgl-icon { position: relative; }
+.bgl-ig .bgl-btn--dark .bgl-icon::after { content: none; }
+@media (prefers-reduced-motion: no-preference) {
+	.bgl-ig .bgl-btn--dark::before { animation: bgl-ring 3.2s linear infinite; }
+	.bgl-ig .bgl-btn--dark .bgl-icon { animation: bgl-igpulse 1.8s ease-in-out infinite; transform-origin: center; }
+	@keyframes bgl-ring { to { --bgl-a: 360deg; } }
+	@keyframes bgl-igpulse { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.22) rotate(-6deg); } 24% { transform: scale(1); } }
+}
+
+/* دکمه‌ی اینستاگرام: پس‌زمینه‌ی زنده (بدون حاشیه‌ی متحرک) */
+.bgl-ig .bgl-btn--dark::before, .bgl-ig .bgl-btn--dark::after { content: none !important; display: none !important; }
+.bgl-ig .bgl-btn--dark, .bgl-ig .bgl-btn--dark:visited {
+	border: 0;
+	background: linear-gradient(100deg, #c38d6a 0%, #ceb89b 28%, #fff1e2 50%, #ceb89b 72%, #c38d6a 100%) 0 0 / 300% 100%;
+	color: #000;
+}
+.bgl-ig .bgl-btn--dark:hover, .bgl-ig .bgl-btn--dark:focus { color: #000; background-color: transparent; }
+.bgl-ig .bgl-btn--dark .bgl-icon { stroke: #000; }
+@media (prefers-reduced-motion: no-preference) {
+	.bgl-ig .bgl-btn--dark { animation: bgl-igbg 5s ease-in-out infinite; }
+	@keyframes bgl-igbg { 0%, 100% { background-position: 0 0; } 50% { background-position: 100% 0; } }
+}
+
+/* قاب موکاپ آیفون */
+.bgl-ig__phone--frame {
+	padding: 9px 9px 0;
+	background: #0d0d0d;
+	border-radius: 46px 46px 0 0;
+	box-shadow: inset 0 0 0 2px #2a2a2a, 0 0 0 1px #000, 0 18px 40px rgba(0, 0, 0, .18);
+}
+.bgl-ig__phone--frame img { border-radius: 38px 38px 0 0; }
+.bgl-ig__phone--frame::before {
+	content: "";
+	position: absolute;
+	z-index: 3;
+	top: 18px;
+	left: 50%;
+	width: 74px;
+	height: 22px;
+	margin-left: -37px;
+	background: #000;
+	border-radius: 12px;
+}
+.bgl-ig__phone--frame::after {
+	content: "";
+	position: absolute;
+	z-index: 3;
+	top: 120px;
+	inset-inline-end: -3px;
+	width: 3px;
+	height: 56px;
+	background: #2a2a2a;
+	border-radius: 0 2px 2px 0;
+}
+
+/* دکمه‌ی اینستاگرام: گرادیان زنده‌ی اینستاگرامی */
+.bgl-ig .bgl-btn--dark, .bgl-ig .bgl-btn--dark:visited {
+	background: linear-gradient(100deg, #feda75 0%, #fa7e1e 22%, #d62976 45%, #962fbf 70%, #4f5bd5 100%) 0 0 / 300% 100%;
+	color: #fff;
+}
+.bgl-ig .bgl-btn--dark:hover, .bgl-ig .bgl-btn--dark:focus { color: #fff; }
+.bgl-ig .bgl-btn--dark .bgl-icon { stroke: #fff; }
+@media (prefers-reduced-motion: no-preference) {
+	.bgl-ig .bgl-btn--dark { animation: bgl-igbg2 4s ease-in-out infinite; }
+	@keyframes bgl-igbg2 { 0%, 100% { background-position: 0 0; } 50% { background-position: 100% 0; } }
+}
+.bgl-ig__phone--frame::before { display: none !important; }
+
+/* ===== اینستاگرام: ستون متن به‌صورت یک بلوک منظم (جایگزین چیدمان پراکنده‌ی قبلی) ===== */
+.bgl-ig .bgl-ig__text { display: flex; flex-direction: column; align-items: stretch; gap: 0; width: 100%; max-width: 520px; margin-inline: auto; }
+.bgl-ig .bgl-ig__eyebrow { margin: 0; }
+.bgl-ig .bgl-ig__title { margin: 10px 0 0; font-size: 36px; line-height: 52px; }
+.bgl-ig .bgl-ig__handle { align-self: flex-start; margin-top: 14px; min-height: 36px; padding: 0 14px; font-size: 14px; line-height: 22px; }
+.bgl-ig .bgl-ig__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 24px 0 0; }
+.bgl-ig .bgl-ig__stats li,
+.bgl-ig .bgl-ig__stats li + li { min-width: 0; padding: 16px 18px 12px; background: #fff; border: 1px solid #e6e6e6; border-radius: 10px; text-align: start; }
+.bgl-ig .bgl-ig__stats li::before { inset-inline-start: 18px; }
+.bgl-ig .bgl-ig__stats strong { font-size: 30px; line-height: 40px; }
+.bgl-ig .bgl-ig__stats small { font-size: 13px; line-height: 22px; }
+.bgl-ig .bgl-ig__desc { max-width: none; margin-top: 20px; padding: 0; border: 0; font-size: 15px; line-height: 28px; color: #4b5563; }
+.bgl-ig .bgl-btn { width: 100%; min-height: 52px; margin-top: 24px; padding: 0 24px; }
+@media (min-width: 1024px) {
+	.bgl-ig__text { padding: 48px 0; justify-content: center; }
+	.bgl-ig .bgl-ig__title { font-size: 36px; line-height: 52px; }
+}
+@media (max-width: 767px) {
+	.bgl-ig .bgl-ig__title { font-size: 28px; line-height: 42px; }
+	.bgl-ig .bgl-ig__stats strong { font-size: 24px; line-height: 34px; }
+}
+
+/* ===== جعبه‌ی اقساط (اسنپ‌پی) در صفحه‌ی تک محصول ===== */
+.bgl-ins,
+.bgl-ins:visited { display: flex; align-items: stretch; width: 100%; margin: 12px 0; overflow: hidden; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 10px; color: #000; text-decoration: none; letter-spacing: 0; }
+.bgl-ins__logo { display: flex; flex: none; flex-direction: column; align-items: center; justify-content: center; width: 84px; padding: 8px; background: #0090ff; color: #fff; text-align: center; }
+.bgl-ins__t bdi { white-space: nowrap; }
+.bgl-ins__logo { direction: ltr; unicode-bidi: isolate; }
+.bgl-ins__logo b { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 17px; line-height: 20px; font-style: italic; font-weight: 800; letter-spacing: 0; }
+.bgl-ins__logo img { display: block; max-width: 100%; max-height: 40px; width: auto; height: auto; object-fit: contain; }
+.bgl-ins__tx { display: flex; flex: 1; flex-direction: column; justify-content: center; gap: 2px; min-width: 0; padding: 12px 16px; }
+.bgl-ins__t { display: block; font-size: 15px; line-height: 24px; font-weight: 700; color: #000; }
+.bgl-ins__tx small { display: block; font-size: 13px; line-height: 22px; color: #6b7280; }
+a.bgl-ins:hover { border-color: #000; }
+a.bgl-ins:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
+@media (max-width: 767px) {
+	.bgl-ins__logo { width: 72px; }
+	.bgl-ins__tx { padding: 10px 12px; }
+}

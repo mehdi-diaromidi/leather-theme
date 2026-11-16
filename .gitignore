@@ -1,0 +1,23 @@
+# --- اسرار و دسترسی‌ها (هرگز commit نشود) ---
+.ftp.env
+ftp
+deploy.ps1
+.vscode/sftp.json
+.env
+.env.*
+*.pem
+*.key
+wp-config.php
+
+# --- خروجی و وابستگی‌ها ---
+node_modules/
+vendor/
+dist/
+*.zip
+qa/reports/
+qa/.auth/
+*.log
+
+# --- سیستم‌عامل / ادیتور ---
+.DS_Store
+Thumbs.db

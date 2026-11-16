@@ -1,0 +1,425 @@
+/* Bagllet cart page — colors, radius, spacing, sizing and type from «شناسنامه استایل bagllet.ir». */
+
+body.woocommerce-cart {
+	/* Woodmart shape variables, scoped to the cart page */
+	--wd-brd-radius: 10px;
+	--wd-form-brd-radius: 8px;
+	--wd-form-brd-width: 1px;
+	--wd-form-brd-color: #E6E6E6;
+	--wd-form-height: 44px;
+	--btn-default-brd-radius: 8px;
+	--btn-accented-brd-radius: 8px;
+}
+
+/* Cards: steps, cart table, totals — border instead of box-shadow */
+body.woocommerce-cart .elementor-top-section:has(.elementor-widget-icon-box),
+body.woocommerce-cart .elementor-inner-section:has(.wd-cart-table),
+body.woocommerce-cart .elementor-inner-section:has(.wd-cart-totals) {
+	background: #FFFFFF;
+	border: 1px solid #E6E6E6;
+	border-radius: 10px;
+}
+
+body.woocommerce-cart .elementor-inner-section:has(.wd-cart-table),
+body.woocommerce-cart .elementor-inner-section:has(.wd-cart-totals) {
+	padding: 24px;
+}
+
+/* No box-shadow in cart content; cards use border above */
+body.woocommerce-cart .wd-content-area :is(*, *::before, *::after) {
+	box-shadow: none !important;
+}
+
+/* Images above the totals box (Woodmart demo leftovers) */
+body.woocommerce-cart .elementor-element-8aa29bc,
+body.woocommerce-cart .elementor-widget-image:has(img[src*="/uploads/2023/04/7.jpg"]) {
+	display: none;
+}
+
+/* Steps: cart → checkout → done. Current step black, the rest muted */
+body.woocommerce-cart .elementor .elementor-element.elementor-widget-icon-box .elementor-icon-box-title,
+body.woocommerce-cart .elementor .elementor-element.elementor-widget-icon-box .elementor-icon-box-title :is(a, span) {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 26px;
+	color: #6B7280;
+}
+
+body.woocommerce-cart .elementor .elementor-element.elementor-widget-icon-box:has(a[href*="/cart"]) .elementor-icon-box-title,
+body.woocommerce-cart .elementor .elementor-element.elementor-widget-icon-box:has(a[href*="/cart"]) .elementor-icon-box-title a {
+	font-weight: 700;
+	color: #000000;
+}
+
+body.woocommerce-cart .elementor-widget-icon-box .elementor-icon {
+	font-size: 20px;
+	color: #9CA3AF;
+}
+
+body.woocommerce-cart .elementor-widget-icon-box:has(a[href*="/cart"]) .elementor-icon {
+	color: #000000;
+}
+
+body.woocommerce-cart .elementor-top-section:has(.elementor-widget-icon-box) .elementor-widget-icon .elementor-icon {
+	font-size: 20px;
+	color: #E6E6E6;
+}
+
+body.woocommerce-cart .elementor-widget-icon-box .elementor-icon-box-title a:hover {
+	color: #000000;
+}
+
+/* Cart table */
+body.woocommerce-cart table.shop_table.cart {
+	margin-bottom: 0;
+	font-size: 15px;
+	line-height: 27px;
+	color: #000000;
+}
+
+body.woocommerce-cart table.shop_table.cart thead th {
+	padding-block: 12px;
+	border-bottom: 1px solid #E6E6E6;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	color: #6B7280;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+body.woocommerce-cart table.shop_table.cart td {
+	padding: 16px 8px;
+	border-color: #E6E6E6;
+	vertical-align: middle;
+}
+
+body.woocommerce-cart table.shop_table.cart td.product-remove {
+	width: 32px;
+	padding-inline-start: 0;
+}
+
+body.woocommerce-cart table.shop_table.cart td.product-thumbnail {
+	width: 80px;
+}
+
+/* Image frame: 1:1 on gray-100, radius 8 */
+body.woocommerce-cart table.shop_table.cart .product-thumbnail img {
+	display: block;
+	width: 80px;
+	max-width: 80px;
+	height: 80px;
+	object-fit: contain;
+	background: #F2F2F2;
+	border-radius: 8px;
+}
+
+body.woocommerce-cart table.shop_table.cart td.product-name {
+	min-width: 120px;
+}
+
+body.woocommerce-cart table.shop_table.cart .product-name a {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 24px;
+	color: #000000;
+}
+
+body.woocommerce-cart table.shop_table.cart .product-name a:hover {
+	text-decoration: underline;
+}
+
+body.woocommerce-cart table.shop_table.cart .product-name :is(dl.variation, .wd-product-detail) {
+	font-size: 14px;
+	line-height: 24px;
+	color: #6B7280;
+}
+
+body.woocommerce-cart table.shop_table.cart .product-price .amount {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	color: #4B5563;
+	white-space: nowrap;
+}
+
+body.woocommerce-cart table.shop_table.cart .product-subtotal .amount {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 26px;
+	color: #000000;
+	white-space: nowrap;
+}
+
+/* Remove item: 32px touch target */
+body.woocommerce-cart table.shop_table.cart a.remove {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: #F2F2F2;
+	border-radius: 8px;
+	color: #000000;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+body.woocommerce-cart table.shop_table.cart a.remove:hover {
+	background: #000000;
+	color: #FFFFFF;
+}
+
+/* Quantity stepper: one 8px box instead of two pill ends */
+body.woocommerce-cart .quantity {
+	display: inline-flex;
+	align-items: stretch;
+	overflow: hidden;
+	height: 40px;
+	background: #FFFFFF;
+	border: 1px solid #E6E6E6;
+	border-radius: 8px;
+}
+
+/* padding-top offsets IRANSansX glyphs, which sit ~1.5px above the line box center */
+body.woocommerce-cart div.quantity :is(button.minus, button.plus, input.qty) {
+	box-sizing: border-box;
+	align-self: stretch;
+	height: 100%;
+	min-height: 0;
+	max-height: 100%;
+	margin: 0;
+	padding-top: 3px;
+}
+
+body.woocommerce-cart .quantity :is(.minus, .plus) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	min-width: 32px;
+	padding-inline: 0;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	font-size: 16px;
+	line-height: 1;
+	color: #000000;
+	transition: background-color .15s ease;
+}
+
+body.woocommerce-cart .quantity :is(.minus, .plus):hover {
+	background: #F2F2F2;
+	color: #000000;
+}
+
+body.woocommerce-cart .quantity input.qty {
+	width: 40px;
+	padding-inline: 0;
+	line-height: 1;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	font-size: 15px;
+	font-weight: 700;
+	color: #000000;
+	text-align: center;
+}
+
+body.woocommerce-cart .quantity:focus-within {
+	border-color: #000000;
+}
+
+/* Buttons */
+body.woocommerce-cart :is(.button, .btn) {
+	min-height: 44px;
+	border-radius: 8px;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 24px;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+body.woocommerce-cart :is(.button, .btn):focus-visible {
+	outline: 2px solid #000000;
+	outline-offset: 2px;
+}
+
+/* Secondary actions (coupon, update): outline black */
+body.woocommerce-cart .cart-actions .button {
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	color: #000000;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+body.woocommerce-cart .cart-actions .button:hover {
+	background: #000000;
+	color: #FFFFFF;
+}
+
+body.woocommerce-cart .cart-actions .button:disabled,
+body.woocommerce-cart .cart-actions .button:disabled:hover {
+	background: #FFFFFF;
+	border-color: #E6E6E6;
+	color: #9CA3AF;
+	opacity: 1;
+	cursor: not-allowed;
+}
+
+/* The single filled Clay CTA of the page: black text */
+body.woocommerce-cart :is(.checkout-button, .return-to-shop .button) {
+	min-height: 48px;
+	background: #C38D6A;
+	border: 0;
+	color: #000000;
+	transition: background-color .15s ease;
+}
+
+body.woocommerce-cart :is(.checkout-button, .return-to-shop .button):hover {
+	background: #BB7D54;
+	color: #000000;
+}
+
+/* Coupon field */
+body.woocommerce-cart .coupon input#coupon_code {
+	height: 44px;
+	background: #FAFAFA;
+	border: 1px solid #E6E6E6;
+	border-radius: 8px;
+	font-size: 15px;
+	color: #000000;
+}
+
+body.woocommerce-cart .coupon input#coupon_code::placeholder {
+	color: #9CA3AF;
+	opacity: 1;
+}
+
+body.woocommerce-cart .coupon input#coupon_code:focus {
+	background: #FFFFFF;
+	border-color: #000000;
+	outline: 0;
+}
+
+/* Totals (the widget hides its title by default) */
+body.woocommerce-cart .wd-cart-totals .cart-totals-inner > h2 {
+	display: block;
+	margin: 0 0 8px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #E6E6E6;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 28px;
+	color: #000000;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+body.woocommerce-cart .cart_totals table.shop_table :is(th, td) {
+	padding-block: 12px;
+	border-color: #E6E6E6;
+}
+
+body.woocommerce-cart .cart_totals table.shop_table th {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	color: #6B7280;
+}
+
+body.woocommerce-cart .cart_totals table.shop_table td,
+body.woocommerce-cart .cart_totals table.shop_table td .amount {
+	font-size: 16px;
+	line-height: 26px;
+	color: #000000;
+}
+
+body.woocommerce-cart .cart_totals tr.order-total :is(th, td) {
+	border-top: 1px solid #E6E6E6;
+}
+
+body.woocommerce-cart .cart_totals tr.order-total th {
+	font-size: 16px;
+	font-weight: 700;
+	color: #000000;
+}
+
+body.woocommerce-cart .cart_totals tr.order-total .amount {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 32px;
+	color: #000000;
+}
+
+body.woocommerce-cart .wc-proceed-to-checkout {
+	padding-top: 16px;
+}
+
+/* Notices and empty cart */
+body.woocommerce-cart :is(.woocommerce-message, .woocommerce-info, .woocommerce-error) {
+	border-radius: 8px;
+}
+
+body.woocommerce-cart .cart-empty {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 28px;
+	color: #000000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body.woocommerce-cart :is(a.remove, .quantity .minus, .quantity .plus, .button) {
+		transition: none;
+	}
+}
+
+/* Mobile: Woodmart stacks each row into label/value pairs */
+@media (max-width: 767.98px) {
+	body.woocommerce-cart .elementor-inner-section:has(.wd-cart-table),
+	body.woocommerce-cart .elementor-inner-section:has(.wd-cart-totals) {
+		padding: 16px;
+	}
+
+	body.woocommerce-cart table.shop_table.cart td {
+		padding-block: 8px;
+	}
+
+	body.woocommerce-cart table.shop_table.cart td.product-remove,
+	body.woocommerce-cart table.shop_table.cart td.product-thumbnail,
+	body.woocommerce-cart table.shop_table.cart td.product-name {
+		width: auto;
+		min-width: 0;
+	}
+
+	body.woocommerce-cart table.shop_table.cart td::before {
+		font-size: 14px;
+		font-weight: 400;
+		color: #6B7280;
+	}
+
+	body.woocommerce-cart :is(.button, .btn) {
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	body.woocommerce-cart .coupon input#coupon_code {
+		font-size: 16px;
+	}
+
+	body.woocommerce-cart .cart_totals tr.order-total .amount {
+		font-size: 18px;
+		line-height: 28px;
+	}
+}
+
+/* دکمه‌های پرداخت صفحه‌ی سبد: پس‌زمینه‌ی Soft Sand، متن مشکی */
+body.woocommerce-cart :is(a.checkout-button.button.alt.wc-forward, .checkout-button) {
+	background: #CEB89B !important;
+	border: 0 !important;
+	color: #000000 !important;
+}
+body.woocommerce-cart :is(a.checkout-button.button.alt.wc-forward, .checkout-button):hover {
+	background: #C4AC8B !important;
+	color: #000000 !important;
+}

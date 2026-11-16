@@ -1,0 +1,677 @@
+/* Bagllet footer — desktop ≥1024, tablet 768–1023, mobile <768 */
+
+.bgf {
+	--bgf-black: #000000;
+	--bgf-elevated: #141414;
+	--bgf-border: #2A2A2A;
+	--bgf-clay: #C38D6A;
+	--bgf-clay-hover: #BB7D54;
+	--bgf-white: #FFFFFF;
+	--bgf-muted: #B5B5B5;
+	--bgf-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+	position: relative;
+	direction: rtl;
+	padding-top: 32px;
+	background: var(--bgf-black);
+	color: var(--bgf-muted);
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0;
+	text-align: start;
+}
+
+.bgf::before {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: 2px;
+	background: linear-gradient(90deg, #000000, #C38D6A);
+}
+
+.bgf *,
+.bgf *::before,
+.bgf *::after {
+	box-sizing: border-box;
+}
+
+.bgf :where(ul, li, p, h2, h3) {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bgf a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 150ms var(--bgf-ease), border-color 150ms var(--bgf-ease), background-color 150ms var(--bgf-ease);
+}
+
+.bgf a:focus-visible,
+.bgf button:focus-visible {
+	outline: 2px solid var(--bgf-clay);
+	outline-offset: 2px;
+}
+
+.bgf svg {
+	display: block;
+	flex-shrink: 0;
+}
+
+.bgf__container {
+	width: 100%;
+	max-width: 1264px;
+	margin-inline: auto;
+	padding-inline: 32px;
+}
+
+/* Brand */
+.bgf__logo {
+	display: block;
+	width: 120px;
+}
+
+.bgf__logo svg {
+	width: 100%;
+	height: auto;
+}
+
+.bgf__tagline {
+	max-width: 240px;
+	margin-top: 16px;
+	color: var(--bgf-muted);
+	font-size: 14px;
+	line-height: 24px;
+}
+
+/* Headings and link lists */
+.bgf .bgf__acc-head {
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.bgf .bgf__acc-btn {
+	all: unset;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	color: var(--bgf-white);
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.bgf .bgf__acc-btn svg {
+	color: var(--bgf-muted);
+	transition: transform 250ms var(--bgf-ease);
+}
+
+.bgf .bgf__col-title {
+	color: var(--bgf-white);
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+}
+
+.bgf__list a {
+	display: inline-block;
+	color: var(--bgf-muted);
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.bgf__list a:hover {
+	color: var(--bgf-clay);
+}
+
+/* Contact card */
+.bgf__card {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1px;
+	overflow: hidden;
+	border: 1px solid var(--bgf-border);
+	border-radius: 10px;
+	background: var(--bgf-border);
+}
+
+.bgf__info {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+	padding: 8px 12px;
+	background: var(--bgf-elevated);
+}
+
+.bgf__info > svg {
+	color: var(--bgf-clay);
+}
+
+.bgf__info-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	min-width: 0;
+}
+
+.bgf__info-label {
+	color: var(--bgf-muted);
+	font-size: 13px;
+	line-height: 22px;
+}
+
+.bgf .bgf__info-value {
+	max-width: 100%;
+	overflow: hidden;
+	color: var(--bgf-white);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 24px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	unicode-bidi: isolate;
+}
+
+.bgf a.bgf__info-value:hover {
+	color: var(--bgf-clay);
+}
+
+/* Social + trust badges */
+.bgf__social,
+.bgf__badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.bgf__social a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border: 1px solid var(--bgf-border);
+	border-radius: 8px;
+	color: var(--bgf-white);
+}
+
+.bgf__social a:hover {
+	border-color: var(--bgf-clay);
+	color: var(--bgf-clay);
+}
+
+.bgf__badges li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+	padding: 8px;
+	border-radius: 8px;
+	background: var(--bgf-white);
+}
+
+.bgf__badges img {
+	display: block;
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+}
+
+/* Bottom bar */
+.bgf__bottom {
+	border-top: 1px solid var(--bgf-border);
+}
+
+.bgf__bottom-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding-block: 8px;
+}
+
+.bgf__copy {
+	color: var(--bgf-muted);
+	font-size: 13px;
+	line-height: 22px;
+}
+
+.bgf .bgf__top {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	background: var(--bgf-clay);
+	color: var(--bgf-black);
+}
+
+.bgf .bgf__top:hover {
+	background: var(--bgf-clay-hover);
+	color: var(--bgf-black);
+}
+
+/* Theme footer is switched off server-side; keep any leftover wrapper out of view */
+.wd-footer.footer-container:empty {
+	display: none;
+}
+
+/* ≥768: accordions become plain columns */
+@media (min-width: 768px) {
+	.bgf__main {
+		display: grid;
+		align-items: start;
+	}
+
+	.bgf__brand { grid-area: brand; }
+	.bgf__acc--links { grid-area: links; }
+	.bgf__col--women { grid-area: women; }
+	.bgf__col--men { grid-area: men; }
+	.bgf__card { grid-area: card; }
+	.bgf__social { grid-area: social; }
+	.bgf__badges { grid-area: badges; }
+
+	.bgf__acc--cats,
+	.bgf__acc--cats > .bgf__acc-panel,
+	.bgf__cats {
+		display: contents;
+	}
+
+	.bgf__acc--cats > .bgf__acc-head,
+	.bgf__acc--contact {
+		display: none;
+	}
+
+	.bgf .bgf__acc-btn {
+		display: block;
+		width: auto;
+		cursor: default;
+	}
+
+	.bgf .bgf__acc-btn svg {
+		display: none;
+	}
+
+	.bgf .bgf__acc-btn::after,
+	.bgf .bgf__col-title::after {
+		content: "";
+		display: block;
+		width: 32px;
+		height: 2px;
+		margin-top: 11px;
+		background: var(--bgf-clay);
+	}
+
+	.bgf__list {
+		display: flex;
+		flex-direction: column;
+		margin-top: 14px;
+	}
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+	.bgf__main {
+		grid-template-columns: 327fr 206fr 225fr 202fr;
+		grid-template-rows: auto auto 1fr auto;
+		grid-template-areas:
+			"brand  links women men"
+			"social links women men"
+			"badges links women men"
+			"card   card  card  card";
+		padding-bottom: 36px;
+	}
+
+	.bgf__acc--links,
+	.bgf__col--women,
+	.bgf__col--men {
+		grid-row: 1 / 4;
+	}
+
+	.bgf__list {
+		gap: 4px;
+	}
+
+	.bgf__social {
+		margin-top: 18px;
+	}
+
+	.bgf__badges {
+		margin-top: 20px;
+	}
+
+	.bgf__card {
+		margin-top: 28px;
+	}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+	.bgf__container {
+		padding-inline: 24px;
+	}
+
+	.bgf__main {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-areas:
+			"brand  brand  brand"
+			"links  women  men"
+			"card   card   card"
+			"badges .      social";
+		column-gap: 24px;
+		padding-bottom: 24px;
+	}
+
+	.bgf__brand {
+		margin-bottom: 24px;
+		padding-bottom: 24px;
+		border-bottom: 1px solid var(--bgf-border);
+	}
+
+	.bgf__logo {
+		width: 96px;
+	}
+
+	.bgf__tagline {
+		max-width: none;
+	}
+
+	.bgf .bgf__acc-btn,
+	.bgf .bgf__col-title {
+		font-size: 14px;
+	}
+
+	.bgf .bgf__acc-btn::after,
+	.bgf .bgf__col-title::after {
+		margin-top: 6px;
+	}
+
+	.bgf__list {
+		margin-top: 8px;
+	}
+
+	.bgf__list a {
+		padding-block: 8px;
+	}
+
+	.bgf__card {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		margin-top: 24px;
+	}
+
+	.bgf__info {
+		padding-block: 4.5px;
+	}
+
+	.bgf__social,
+	.bgf__badges {
+		margin-top: 24px;
+		align-self: center;
+	}
+
+	.bgf__social {
+		justify-self: end;
+	}
+
+	.bgf__social a,
+	.bgf .bgf__top {
+		width: 44px;
+		height: 44px;
+	}
+
+	.bgf__bottom-inner {
+		padding-block: 10px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+	.bgf {
+		padding-top: 24px;
+	}
+
+	.bgf__container {
+		padding-inline: 16px;
+	}
+
+	.bgf__main {
+		padding-bottom: 24px;
+	}
+
+	.bgf__brand {
+		padding-bottom: 16px;
+		border-bottom: 1px solid var(--bgf-border);
+	}
+
+	.bgf__logo {
+		width: 96px;
+	}
+
+	.bgf__tagline {
+		max-width: none;
+	}
+
+	.bgf__acc + .bgf__acc {
+		border-top: 1px solid var(--bgf-border);
+	}
+
+	.bgf .bgf__acc-btn {
+		min-height: 52px;
+	}
+
+	.bgf__acc.is-open .bgf__acc-btn svg {
+		transform: rotate(180deg);
+	}
+
+	.bgf__acc-panel {
+		display: grid;
+		grid-template-rows: 0fr;
+		visibility: hidden;
+		transition: grid-template-rows 250ms var(--bgf-ease), visibility 0s linear 250ms;
+	}
+
+	.bgf__acc.is-open > .bgf__acc-panel {
+		grid-template-rows: 1fr;
+		visibility: visible;
+		transition: grid-template-rows 250ms var(--bgf-ease), visibility 0s linear 0s;
+	}
+
+	.bgf__acc-inner {
+		min-height: 0;
+		overflow: hidden;
+	}
+
+	.bgf__acc-inner > * {
+		padding-bottom: 8px;
+	}
+
+	.bgf__cats {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: 16px;
+	}
+
+	.bgf .bgf__col-title {
+		font-size: 14px;
+	}
+
+	.bgf__list {
+		display: flex;
+		flex-direction: column;
+		margin-top: 6px;
+	}
+
+	.bgf__list a {
+		padding-block: 8px;
+	}
+
+	.bgf__card {
+		grid-template-columns: minmax(0, 1fr);
+		margin-top: 16px;
+	}
+
+	.bgf__info {
+		padding-block: 4.5px;
+	}
+
+	.bgf__social {
+		margin-top: 24px;
+	}
+
+	.bgf__badges {
+		margin-top: 16px;
+	}
+
+	.bgf__social a,
+	.bgf .bgf__top {
+		width: 44px;
+		height: 44px;
+	}
+
+	.bgf__bottom-inner {
+		padding-block: 10px;
+	}
+
+	.bgf__copy-sep {
+		display: none;
+	}
+
+	.bgf__copy-rest {
+		display: block;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bgf a,
+	.bgf .bgf__acc-btn svg,
+	.bgf__acc-panel,
+	.bgf__acc.is-open > .bgf__acc-panel {
+		transition: none;
+	}
+}
+
+/* ===== پرداخت نهایی فوتر (بگلت ۱.۱۲) ===== */
+.bgf { padding-top: 56px; background: #000 radial-gradient(640px 320px at 100% 0%, rgba(195, 141, 106, .10), rgba(195, 141, 106, 0) 70%) no-repeat; }
+.bgf__logo { width: 140px; }
+.bgf__tagline { max-width: 280px; margin-top: 18px; font-size: 15px; line-height: 26px; }
+
+/* لینک‌ها: هاور سفید با نقطه‌ی Clay کوچک (Clay فقط تزئین، نه متن روی روشن) */
+.bgf__list a { position: relative; padding-inline-start: 0; transition: color .15s ease, padding-inline-start .2s ease; }
+.bgf__list a::before { content: ""; position: absolute; inset-inline-start: 0; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; background: var(--bgf-clay); border-radius: 2px; opacity: 0; transition: opacity .15s ease; }
+.bgf__list a:hover { color: #fff; padding-inline-start: 14px; }
+.bgf__list a:hover::before { opacity: 1; }
+
+/* آیکن‌های اجتماعی: هاور پر Sand */
+.bgf__social a { transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .15s ease; }
+.bgf__social a:hover { background: var(--bgf-elevated); border-color: var(--bgf-clay); color: #CEB89B; transform: translateY(-2px); }
+
+/* نمادهای اعتماد: قاب یکدست و کم‌رنگ‌تر تا فوتر را بهم نریزد */
+.bgf__badges li { width: 60px; height: 60px; padding: 6px; background: #fff; border: 1px solid #2a2a2a; border-radius: 10px; opacity: .92; transition: opacity .15s ease; }
+.bgf__badges li:hover { opacity: 1; }
+.bgf__badges img { width: 46px; height: 46px; }
+
+/* کارت اطلاعات: کمی هوای بیشتر */
+.bgf__info { padding: 14px 18px; }
+.bgf__card { border-radius: 12px; }
+
+/* نوار پایین */
+.bgf__bottom-inner { padding-block: 14px; }
+
+@media (min-width: 1024px) {
+	.bgf__card { margin-top: 36px; }
+}
+@media (max-width: 767.98px) {
+	.bgf { padding-top: 40px; }
+	.bgf__logo { width: 120px; }
+	.bgf__list a:hover { padding-inline-start: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.bgf__list a, .bgf__social a { transition: none; }
+	.bgf__social a:hover { transform: none; }
+}
+
+/* آیکن‌های غنی‌تر: دو‌لایه با قاب */
+.bgf__info > svg { width: 44px; height: 44px; padding: 10px; background: #000; border: 1px solid #2a2a2a; border-radius: 10px; color: var(--bgf-clay); }
+.bgf__social a { width: 44px; height: 44px; background: var(--bgf-elevated); }
+.bgf__social a svg { width: 22px; height: 22px; }
+.bgf__social a:hover svg { color: #CEB89B; }
+@media (max-width: 767.98px) { .bgf__info > svg { width: 40px; height: 40px; padding: 9px; } }
+.bgf__info > svg { padding: 8px; }
+.bgf__social a svg { width: 24px; height: 24px; }
+
+/* ===== ظاهر فوتر: فقط استایل، بدون محتوای اضافه ===== */
+.bgf { padding-top: 64px; background: linear-gradient(180deg, #0b0b0b 0, #000 38%), #000; overflow: hidden; }
+.bgf::before { height: 2px; background: linear-gradient(90deg, #000, #C38D6A 50%, #000); }
+.bgf::after { content: ""; position: absolute; inset-inline-end: -120px; top: -160px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(195, 141, 106, .16), rgba(195, 141, 106, 0) 68%); pointer-events: none; }
+.bgf__container, .bgf__bottom { position: relative; z-index: 1; }
+.bgf__logo { width: 150px; }
+.bgf__tagline { max-width: 290px; margin-top: 20px; font-size: 15px; line-height: 28px; color: #B5B5B5; }
+
+/* عنوان ستون‌ها: مربع کوچک Clay + خط زیر */
+.bgf .bgf__acc-btn span, .bgf .bgf__col-title { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: 17px; line-height: 28px; }
+@media (min-width: 768px) {
+	.bgf .bgf__acc-btn > span::before, .bgf .bgf__col-title::before { content: ""; flex: none; width: 8px; height: 8px; background: #C38D6A; border-radius: 2px; }
+	.bgf .bgf__acc-btn::after, .bgf .bgf__col-title::after { width: 100%; max-width: 160px; height: 1px; margin-top: 14px; background: linear-gradient(90deg, #C38D6A, rgba(195, 141, 106, 0)); }
+	.bgf__list { margin-top: 20px; gap: 8px; }
+}
+.bgf__list a { font-size: 15px; line-height: 26px; color: #B5B5B5; }
+.bgf__list a:hover { color: #fff; }
+
+/* آیکن‌های اجتماعی و نمادها */
+.bgf__social { gap: 10px; }
+.bgf__social a { width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(160deg, #1b1b1b, #0c0c0c); border: 1px solid #2A2A2A; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05); }
+.bgf__social a:hover { border-color: #C38D6A; color: #CEB89B; transform: translateY(-3px); }
+.bgf__badges li { width: 64px; height: 64px; padding: 8px; border-radius: 12px; border: 1px solid #2A2A2A; opacity: .95; }
+
+/* کارت اطلاعات تماس */
+.bgf__card { border-radius: 14px; border: 1px solid #2A2A2A; background: #2A2A2A; box-shadow: 0 20px 50px rgba(0, 0, 0, .5); }
+.bgf__info { padding: 18px 22px; background: linear-gradient(180deg, #181818, #101010); gap: 16px; }
+.bgf__info:hover { background: linear-gradient(180deg, #1d1d1d, #131313); }
+.bgf__info-label { font-size: 13px; letter-spacing: 0; }
+.bgf .bgf__info-value { font-size: 15px; }
+
+/* نوار پایین */
+.bgf__bottom { border-top: 1px solid #1d1d1d; background: #050505; }
+.bgf__bottom-inner { padding-block: 16px; }
+.bgf .bgf__top { border-radius: 10px; }
+@media (min-width: 1024px) { .bgf__card { margin-top: 44px; } .bgf__main { padding-bottom: 56px; } }
+@media (max-width: 767.98px) { .bgf { padding-top: 44px; } .bgf__info { padding: 14px 16px; } }
+@media (prefers-reduced-motion: reduce) { .bgf__social a { transition: none; } .bgf__social a:hover { transform: none; } }
+@media (min-width: 768px) {
+	.bgf .bgf__col-title { display: flex; flex-wrap: wrap; }
+	.bgf .bgf__col-title::after { content: ""; flex: 0 0 100%; display: block; width: 100%; max-width: 160px; height: 1px; margin-top: 14px; background: linear-gradient(90deg, #C38D6A, rgba(195, 141, 106, 0)); }
+}
+@media (min-width: 768px) {
+	.bgf .bgf__col-title { position: relative; display: flex; align-items: center; padding-bottom: 15px; }
+	.bgf .bgf__col-title::after { content: ""; position: absolute; inset-inline-start: 0; bottom: 0; flex: none; width: 160px; max-width: none; height: 1px; margin: 0; background: linear-gradient(90deg, #C38D6A, rgba(195, 141, 106, 0)); }
+}
+
+/* جهت خط‌ها در RTL: از راست پررنگ، به چپ محو */
+@media (min-width: 768px) {
+	.bgf .bgf__acc-btn::after { background: linear-gradient(270deg, #C38D6A, rgba(195, 141, 106, 0)); }
+	.bgf .bgf__col-title::after { inset-inline-start: auto; right: 0; left: auto; background: linear-gradient(270deg, #C38D6A, rgba(195, 141, 106, 0)); }
+}
+
+/* موبایل: بدون آکاردئون؛ همه‌ی بخش‌ها باز و ثابت */
+@media (max-width: 767.98px) {
+	.bgf .bgf__acc-btn { min-height: 0; cursor: default; pointer-events: none; display: block; width: auto; margin-bottom: 4px; }
+	.bgf .bgf__acc-btn svg { display: none; }
+	.bgf__acc-panel, .bgf__acc.is-open > .bgf__acc-panel { display: block; grid-template-rows: none; visibility: visible !important; transition: none; }
+	.bgf__acc-inner { overflow: visible; }
+	.bgf__acc--cats > .bgf__acc-head, .bgf__acc--contact { display: none; }
+	.bgf__acc + .bgf__acc { border-top: 0; margin-top: 24px; }
+	.bgf__acc--links { margin-top: 20px; }
+	.bgf__cats { margin-top: 24px; }
+	.bgf .bgf__acc-btn > span, .bgf .bgf__col-title { font-size: 16px; }
+	.bgf .bgf__acc-btn > span::before, .bgf .bgf__col-title::before { content: ""; flex: none; width: 8px; height: 8px; background: #C38D6A; border-radius: 2px; }
+}
