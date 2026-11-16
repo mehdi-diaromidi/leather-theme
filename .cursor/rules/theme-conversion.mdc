@@ -15,7 +15,7 @@ alwaysApply: true
 5. استاندارد وردپرس: WPCS، sanitize زود/escape دیر، nonce+capability، i18n (`bagllet`)، RTL، PHP 7.4–8.3، بدون کد مبهم.
 6. تغییر در Woodmart/المنتور/ووکامرس/هسته ممنوع؛ فقط قالب خودمان و پلاگین همراه.
 7. فونت IRANYekan داخل بسته‌ی فروش نیست؛ Vazirmatn پیش‌فرض + آپلود فونت سفارشی.
-8. اسرار (FTP/رمزها) هرگز در ریپو. به سایت زنده یا FTP بدون تایید مدیر وصل نشو؛ فقط staging.
+8. اسرار (FTP/رمزها) فقط در `.env.local` (ignore) و هرگز در ریپو/لاگ/گزارش. سایت bagllet.ir خودش staging است و Woodmart روی آن فعال است: FTP برای خواندن آزاد؛ نوشتن فقط در `themes/bagllet`، `plugins/bagllet-widgets` و `mu-plugins/bagllet-*`؛ پشتیبان قبل از بازنویسی؛ هیچ DELETE؛ فعال‌کردن قالب جدید و تغییر دیتابیس ممنوع (جزئیات: بخش ۰.۱ نقشه‌راه).
 
 ## روش کار
 - هر بار فقط **یک فاز**. شاخه `phase/N-name`. کارِ فاز بعد یا refactor بی‌ربط ممنوع.

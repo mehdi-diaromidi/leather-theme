@@ -21,3 +21,8 @@ qa/.auth/
 # --- سیستم‌عامل / ادیتور ---
 .DS_Store
 Thumbs.db
+
+# محلی (اسرار و داده‌ی خام)
+.env.local
+qa/backups/
+qa/data/
