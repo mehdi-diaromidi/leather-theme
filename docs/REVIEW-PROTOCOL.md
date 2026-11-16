@@ -3,7 +3,7 @@
 ## چرخه‌ی هر فاز
 1. **شروع:** از `main` به‌روز شاخه بساز: `git checkout -b phase/N-<name>`. فقط وقتی `docs/review/phase-(N-1)-APPROVED.md` روی `main` هست.
 2. **کار:** commit های کوچک و معنادار، پیشوند `phase N:`. فقط محدوده‌ی همین فاز؛ کار فاز بعد یا refactor بی‌ربط ممنوع.
-3. **خودبازبینی:** چک‌های بخش ۵ نقشه‌راه را اجرا کن؛ گزارش‌ها را در `qa/reports/phase-N/` بگذار (ignore است؛ خلاصه‌ی اعداد در handoff بیاید).
+3. **خودبازبینی:** چک‌های بخش ۵ و راستی‌آزمایی بصری بخش ۵.۱ (مرورگر داخلی Cursor، با مدرک commit‌شده در `docs/handoff/evidence/phase-N/`) را اجرا کن؛ گزارش‌ها را در `qa/reports/phase-N/` بگذار (ignore است؛ خلاصه‌ی اعداد در handoff بیاید).
 4. **گزارش تحویل:** `docs/handoff/phase-N.md` (قالب پایین) را بنویس و `docs/PROGRESS.md` را به‌روز کن.
 5. **Push و توقف:** `git push -u origin phase/N-<name>` سپس **متوقف شو** و منتظر بازبینی بمان. چیزی را به `main` merge نکن.
 6. **بازبینی (ناظر):** `git fetch && git diff main...phase/N-<name>`، اجرای چک‌ها، مقایسه‌ی ظاهری، و نوشتن `docs/review/phase-N-R<k>.md`.
@@ -28,6 +28,7 @@
 ## نحوه‌ی تست (دقیق، قابل تکرار)
 1. ...
 ## نتایج QA
+- مدرک بصری: `docs/handoff/evidence/phase-N/` (کنار‌هم ۱۴۴۰/۷۶۸/۳۹۰ + console-network.md)
 - phpcs: ... | چک ممنوعه‌ها: ... | diff: صفحه/عرض → درصد
 ## تست‌نشده / ریسک‌ها
 - ...
