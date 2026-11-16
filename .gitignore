@@ -20,9 +20,13 @@ dist/
 *.zip
 qa/reports/
 qa/.auth/
+qa/baseline-private/
 *.log
 tools/node/
 tools/_ftp-*.txt
+tools/_cmsg.txt
+tools/_commit*.cmd
+tools/_rewrite*.cmd
 
 # --- سیستم‌عامل / ادیتور ---
 .DS_Store

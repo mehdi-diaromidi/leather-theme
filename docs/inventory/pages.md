@@ -1,65 +1,62 @@
 # فهرست صفحات و حالت‌ها (فاز ۱)
 
-منبع: `https://bagllet.ir/wp-sitemap.xml` + مشاهده‌ی زنده + ووکامرس.
+منبع: sitemap + مشاهده زنده + ووکامرس. مسیرهای عمومی در `qa/baseline/`؛ حساب لاگین‌شده فقط در `qa/baseline-private/` (gitignore).
 
 ## صفحات محتوایی / فروشگاهی
 
-| id | مسیر | نوع | یادداشت |
+| id | مسیر | نوع | baseline عمومی |
 |---|---|---|---|
-| home | `/` | صفحه اصلی Elementor (`page-id-77`, template `elementor_header_footer`) | ویجت‌های bagllet: hero، category-grid/card، story، instagram |
-| about | `/about/` | درباره ما | قالب/متاباکس پلاگین bagllet-widgets |
-| contact | `/contact-us/` | تماس | قالب contact پلاگین |
-| shop | `/shop/` | آرشیو فروشگاه | `woodmart-ajax-shop-on` |
-| cat-womens | `/product-category/womens-leather/` | دسته والد زنانه | مگامنو زیرمجموعه‌ها |
-| cat-mens | `/product-category/mens-leather/` | دسته والد مردانه | |
-| cat-womens-bag | `/product-category/womens-leather/womens-leather-bag/` | زیردسته | |
-| cat-mens-bag | `/product-category/mens-leather/mens-leather-bag/` | زیردسته | |
-| product-* | `/product/...` | تک‌محصول | از فروشگاه resolve می‌شود (نمونه/متغیر/تخفیف/ناموجود در صورت وجود) |
-| cart-empty | `/cart/` | سبد خالی | |
-| cart-full | — | سبد پر | نیاز به افزودن محصول؛ در baseline تعاملی ثبت می‌شود |
-| checkout | `/checkout/` | تسویه | با حساب لاگین‌شده دیده شد؛ سفارش واقعی ثبت نشود |
-| my-account | `/my-account/` | حساب | مهمان: فرم ورود پیامکی/ایمیل. لاگین‌شده (مشاهده ۱۴۰۴/۰۸/۲۶): پیشخوان سفارشی woodmart-plus/Elementor با لینک‌های سفارش‌ها، دانلودها، تجربه‌های خرید، علاقه‌مندی، کیف پول، تیکت‌ها، اطلاعیه‌ها، کدهای تخفیف، نشانی، جزئیات حساب، صورتحساب‌ها. اسکرین لاگین‌شده به‌خاطر PII/کدتخفیف در ریپوی عمومی commit نشده |
-| my-account-orders | `/my-account/orders/` | سفارش‌ها | نیاز به نشست |
-| my-account-addresses | `/my-account/edit-address/` | نشانی | نیاز به نشست |
-| my-account-edit | `/my-account/edit-account/` | جزئیات حساب | نیاز به نشست |
-| my-account-wallet | (لینک از پیشخوان) | کیف پول | افزونه/قالب پلاس |
-| my-account-tickets | (لینک از پیشخوان) | تیکت | افزونه پیامکی/پشتیبانی |
-| wishlist | `/علاقه-مندی-ها/` | ویش‌لیست Woodmart | صفحه در sitemap |
-| compare | `/مقایسه/` | مقایسه Woodmart | صفحه در sitemap |
-| products-categories | `/products-categories/` | صفحه دسته‌ها | در sitemap |
-| home-tmp | `/home-tmp/` | صفحه موقت | غیرتولیدی؛ در baseline اصلی نیست |
-| search-results | `/?s=کیف&post_type=product` | جستجو با نتیجه | |
-| search-empty | `/?s=zzzzznofind999` | جستجو بدون نتیجه | |
-| 404 | مسیر ناموجود | ۴۰۴ | |
-| thankyou | — | تشکر سفارش | بدون سفارش واقعی در این فاز ضبط نشد |
-| legal | — | صفحات قانونی | در sitemap صفحه جدا دیده نشد؛ نیاز به تایید مدیر |
+| home | `/` | Elementor صفحه اصلی | بله |
+| about | `/about/` | درباره | بله |
+| contact | `/contact-us/` | تماس | بله |
+| shop | `/shop/` | فروشگاه | بله |
+| cat-womens / cat-mens / زیردسته‌ها | `/product-category/...` | دسته | بله |
+| products-categories | `/products-categories/` | صفحه دسته‌ها | بله |
+| product-sample (+ variable/sale/outofstock اگر در کاتالوگ باشد) | `/product/...` | محصول | بله |
+| cart-empty | `/cart/` | سبد خالی (مهمان) | بله |
+| cart-full | `/cart/` پس از add-to-cart مهمان | سبد پر | بله (R2) |
+| checkout | `/checkout/` مهمان با سبد | فرم تسویه خالی (بدون PII) | بله (R2)؛ نسخهٔ قبلی به‌خاطر سبد خالی redirect بود |
+| thankyou | صفحه تشکر | — | **با سفارش تست در فاز ۷** |
+| wishlist / compare | صفحات Woodmart | بله |
+| search-results / search-empty / 404 | جستجو / ۴۰۴ | بله |
+| legal / affiliate | لینک فوتر «قوانین و مقررات» و «همکاری در فروش» | فعلاً `href="#"` (صفحه جدا نیست) — در inventory ثبت شد |
+| blog | `/blog/` | آرشیو بدون نوشتهٔ قابل اتکا | خارج از baseline (صریح) |
+| home-tmp | `/home-tmp/` | غیرتولیدی | خارج از baseline |
 
-## زیردسته‌های دیده‌شده در مگامنو (علاوه بر sitemap)
+## حساب کاربری
 
-زنانه: اکسسوری (دستکش، جاکارتی، کیف پول، کیف لوازم آرایش)، ساک، کمربند، انواع کیف (کوله‌پشتی، دستی، اداری، دوشی، کلاسیکی، کلاچ)، ست زنانه.
+| id | مسیر | baseline |
+|---|---|---|
+| my-account (مهمان) | `/my-account/` | عمومی = فرم ورود |
+| dashboard / orders / addresses / edit-account / downloads / wishlist | زیر `/my-account/…` | فقط `qa/baseline-private/` |
 
-مردانه: ست مردانه، اکسسوری (کیف دسته چکی، جاکارتی، …)، کیف، کمربند، …
+پیشخوان لاگین‌شده (woodmart-plus/Elementor): سفارش‌ها، دانلودها، تجربه‌های خرید، علاقه‌مندی، کیف پول، تیکت، اطلاعیه، کدتخفیف، نشانی، جزئیات، صورتحساب. کیف پول/تیکت/اطلاعیه/ورود پیامکی خارج از قالب فروش (یکپارچه‌سازی اختیاری).
 
 ## حالت‌های تعاملی (۱.ب)
 
-| حالت | محل مشاهده | وضعیت ثبت |
+| حالت | مسیر فایل | وضعیت |
 |---|---|---|
-| hover/focus/active دکمه و کارت | هدر، کارت محصول `.wd-product` | فهرست‌شده؛ اسکرین baseline حالت پیش‌فرض |
-| دراپ‌داون / مگامنو | `header.whb-header`، کلاس‌های `wd-dropdown` | موجود |
-| منوی موبایل | `.mobile-nav` / `wd-header-mobile-nav` | موجود |
-| mini-cart باز | `.wd-header-cart` | موجود |
-| جستجوی باز / ایجکس | `.wd-header-search` | موجود |
-| quick view | روی کارت محصول | موجود (`hasQuickView`) |
-| sticky header | `whb-scroll-stick whb-sticky-real` | موجود |
-| sticky add-to-cart | صفحه محصول | باید در محصول تایید شود |
-| swatch ویژگی | کارت محصول | موجود (`hasSwatch`) |
-| پاپ‌آپ / cookie bar | صفحه اصلی | در لحظه مشاهده دیده نشد |
-| خطاهای فرم / اعلان ووکامرس | تسویه/حساب | تست مخرب انجام نشد |
-| loading / AJAX shop | `woodmart-ajax-shop-on` | فعال |
+| مگامنو باز (1440) | `qa/baseline/states/mega-menu-open/1440.png` | ثبت‌شده |
+| drawer موبایل (390) | `qa/baseline/states/mobile-drawer-open/390.png` | ثبت‌شده |
+| جستجوی باز | `qa/baseline/states/search-open/1440.png` | ثبت‌شده |
+| mini-cart باز | `qa/baseline/states/mini-cart-open/1440.png` | ثبت‌شده |
+| sticky header | `qa/baseline/states/sticky-header/1440.png` | ثبت‌شده |
+| hover کارت محصول | `qa/baseline/states/product-card-hover/1440.png` | ثبت‌شده |
+| quick view | `qa/baseline/states/quick-view-modal/1440.png` | ثبت‌شده |
+| hover دکمه | `qa/baseline/states/button-hover/1440.png` | ثبت‌شده |
+| focus دکمه | `qa/baseline/states/button-focus/1440.png` | ثبت‌شده |
+| focus فیلد فرم | `qa/baseline/states/input-focus/1440.png` | ثبت‌شده |
+| swatch محصول | `qa/baseline/states/product-swatch/1440.png` | ثبت‌شده |
+| تب محصول | `qa/baseline/states/product-tabs/1440.png` | ثبت‌شده |
+| خطای اعتبارسنجی تسویه | `qa/baseline/states/checkout-validation/1440.png` | ثبت‌شده |
+| sticky ATC | — | در صورت وجود در DOM فاز ۶ تکمیل می‌شود |
+| cookie/popup پیش‌فرض | — | در مشاهده دیده نشد |
 
-## عرض‌های baseline
+ستون «وضعیت» فقط وقتی «ثبت‌شده» است که فایل روی دیسک باشد (اسکریپت `npm run qa:states`).
 
-- تمام‌صفحه: **1440 / 768 / 390**
-- برش header/footer: **1280 / 1024** (+ همان عرض‌های بالا)
-- خروجی: `qa/baseline/<page-id>/<width>.png`
-- مشخصات: `qa/baseline/specs/<page-id>-<width>.json`
+## عرض‌ها
+
+- تمام‌صفحه: 1440 / 768 / 390 (عرض فایل = عرض هدف)
+- برش header + footer: 1280 / 1024 — فوتر واقعی `footer.bgf`
+- خروجی: `qa/baseline/<id>/<width>.png` و `qa/baseline/specs/`
+- سرریز: `docs/inventory/overflow.md`
