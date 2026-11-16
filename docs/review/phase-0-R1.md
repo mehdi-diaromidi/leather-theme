@@ -13,7 +13,7 @@
 - راستی‌آزمایی: `git remote -v` و `git ls-remote origin` در handoff بیاید.
 
 ### F2 [blocker] — هویت commit
-- مشکل: نویسنده‌ی commit ها `Mehdi <mehdi@bagllet.ir>` است؛ هویت صاحب ریپو نیست.
+- مشکل: نویسنده‌ی commit ها یک نام و ایمیل ساختگی (نه هویت مالک ریپو) است؛ هویت صاحب ریپو نیست.
 - راه رفع: همان هویتی که commit های `main` دارند: `git log -1 --format='%an <%ae>' main` را بخوان و با `git config user.name/user.email` (فقط local همین ریپو) تنظیم کن. هیچ نام ابزار/ایجنتی در commit یا فایل‌ها نیاید.
 
 ### F3 [blocker] — ۴۵۴ فایل، شامل دارایی‌های بی‌ربط و حجیم، track شده
