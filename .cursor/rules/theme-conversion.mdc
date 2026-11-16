@@ -1,0 +1,25 @@
+---
+description: Rules for converting bagllet.ir (Woodmart) into a standalone sellable WordPress theme
+alwaysApply: true
+---
+
+# تبدیل bagllet.ir به قالب اختصاصی — قواعد همیشگی
+
+منبع حقیقت: `docs/THEME-ROADMAP.md`. پروتکل: `docs/REVIEW-PROTOCOL.md`. توکن‌های طراحی: `شناسنامه استایل bagllet.ir.md`. همیشه فارسی، کوتاه.
+
+## قواعد سخت
+1. هدف = ظاهر و رفتار **دقیقاً برابر** سایت زنده (خط پایه‌ی `qa/baseline`). هر اختلاف = باگ.
+2. **هیچ کد/کلاس/تصویر Woodmart کپی نشود.** فقط اندازه‌گیری مجاز است. کلاس‌های `wd-`، `xts-`، `woodmart` در خروجی ممنوع‌اند.
+3. هدر/فوتر/ووکامرس بدون Elementor کار کنند. المنتور فقط برای محتوای صفحه‌ی اصلی (اختیاری).
+4. رنگ/فونت/فاصله/radius فقط از CSS variables (`tokens.css`). hex یا px پراکنده ممنوع.
+5. استاندارد وردپرس: WPCS، sanitize زود/escape دیر، nonce+capability، i18n (`bagllet`)، RTL، PHP 7.4–8.3، بدون کد مبهم.
+6. تغییر در Woodmart/المنتور/ووکامرس/هسته ممنوع؛ فقط قالب خودمان و پلاگین همراه.
+7. فونت IRANYekan داخل بسته‌ی فروش نیست؛ Vazirmatn پیش‌فرض + آپلود فونت سفارشی.
+8. اسرار (FTP/رمزها) هرگز در ریپو. به سایت زنده یا FTP بدون تایید مدیر وصل نشو؛ فقط staging.
+
+## روش کار
+- هر بار فقط **یک فاز**. شاخه `phase/N-name`. کارِ فاز بعد یا refactor بی‌ربط ممنوع.
+- پایان فاز: چک‌های خودکار → `docs/handoff/phase-N.md` → به‌روزرسانی `docs/PROGRESS.md` → push → **توقف** تا بازبینی.
+- بازبینی‌ها در `docs/review/`. هر یافته (`F#`) را رفع و در Fix log ثبت کن. بدون `phase-N-APPROVED.md` فاز بعد شروع نشود و چیزی merge نشود.
+- حدس نزن؛ ابهام را در handoff بپرس. تست‌نشده را «انجام‌شده» نگو.
+- با هر تغییر asset، نسخه‌ی قالب را بالا ببر (cache-bust).
