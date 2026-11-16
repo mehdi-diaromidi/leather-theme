@@ -23,6 +23,8 @@
 | Hero / category / story | ویجت‌های bagllet-* در المنتور | پلاگین همراه |
 | Footer Woodmart | `footer.wd-footer.footer-container` | منطق فعلی در bagllet-widgets/footer نیز هست → انتقال به قالب |
 | Categories accordion | `categories-accordion-on` | رفتار آرشیو |
+| My Account سفارشی (Elementor + woodmart-plus) | قالب `woodmart-plus/template/myaccount/elementor-my-account.php`؛ پیشخوان با کیف پول/تیکت/اطلاعیه/کدتخفیف/صورتحساب | مهاجرت به قالب/پلاگین همراه؛ وابستگی به وودمارت‌پلاس باید شکسته شود |
+| ورود/ثبت‌نام پیامکی | منوی ادمین «سیستم پیامکی» + فرم ورود موبایل/ایمیل | وابستگی افزونه پیامک؛ در inventory افزونه‌ها پیگیری شود |
 
 ## CPT / متای Woodmart (از sitemap و ساختار)
 

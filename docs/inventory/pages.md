@@ -18,7 +18,12 @@
 | cart-empty | `/cart/` | سبد خالی | |
 | cart-full | — | سبد پر | نیاز به افزودن محصول؛ در baseline تعاملی ثبت می‌شود |
 | checkout | `/checkout/` | تسویه | با حساب لاگین‌شده دیده شد؛ سفارش واقعی ثبت نشود |
-| my-account | `/my-account/` | حساب | ورود/داشبورد بسته به نشست |
+| my-account | `/my-account/` | حساب | مهمان: فرم ورود پیامکی/ایمیل. لاگین‌شده (مشاهده ۱۴۰۴/۰۸/۲۶): پیشخوان سفارشی woodmart-plus/Elementor با لینک‌های سفارش‌ها، دانلودها، تجربه‌های خرید، علاقه‌مندی، کیف پول، تیکت‌ها، اطلاعیه‌ها، کدهای تخفیف، نشانی، جزئیات حساب، صورتحساب‌ها. اسکرین لاگین‌شده به‌خاطر PII/کدتخفیف در ریپوی عمومی commit نشده |
+| my-account-orders | `/my-account/orders/` | سفارش‌ها | نیاز به نشست |
+| my-account-addresses | `/my-account/edit-address/` | نشانی | نیاز به نشست |
+| my-account-edit | `/my-account/edit-account/` | جزئیات حساب | نیاز به نشست |
+| my-account-wallet | (لینک از پیشخوان) | کیف پول | افزونه/قالب پلاس |
+| my-account-tickets | (لینک از پیشخوان) | تیکت | افزونه پیامکی/پشتیبانی |
 | wishlist | `/علاقه-مندی-ها/` | ویش‌لیست Woodmart | صفحه در sitemap |
 | compare | `/مقایسه/` | مقایسه Woodmart | صفحه در sitemap |
 | products-categories | `/products-categories/` | صفحه دسته‌ها | در sitemap |
