@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T23:30:38.117Z",
+  "generatedAt": "2026-11-16T23:49:27.480Z",
   "fontFamilies": [
     "IRANSansXFaNum, Arial, Helvetica, sans-serif",
     "iranyekan, Tahoma, sans-serif",
@@ -39,9 +39,20 @@
     "5px",
     "12px"
   ],
-  "boxShadows": [],
+  "boxShadows": [
+    "rgba(0, 0, 0, 0.12) 0px 16px 40px 0px",
+    "rgba(0, 0, 0, 0.2) 0px 4px 8px 0px, rgba(0, 0, 0, 0.19) 0px 6px 20px 0px",
+    "rgba(0, 0, 0, 0.17) 0px 0px 4px 0px",
+    "rgba(0, 0, 0, 0.12) 0px 0px 0px 1px inset",
+    "rgba(0, 0, 0, 0.5) 0px 20px 50px 0px",
+    "rgba(255, 255, 255, 0.05) 0px 1px 0px 0px inset",
+    "rgba(0, 0, 0, 0.17) 0px -1px 9px 0px",
+    "rgba(0, 0, 0, 0.18) 0px 0px 60px 0px"
+  ],
   "transitions": [
-    "none"
+    "all",
+    "opacity cubic-bezier(0.19, 1, 0.22, 1), visibility cubic-bezier(0.19, 1, 0.22, 1), transform cubic-bezier(0.19, 1, 0.22, 1)",
+    "transform cubic-bezier(0.19, 1, 0.22, 1)"
   ],
   "fontSizeByElement": {
     "header": {
@@ -179,5 +190,11 @@
       "768": "15px",
       "1440": "15px"
     }
-  }
+  },
+  "fontUsage": {
+    "note": "هر دو فونت تجاری‌اند؛ فاز ۲: Vazirmatn پیش‌فرض + آپلود سفارشی.",
+    "iranyekan": "در _tokens قبلی دیده شد؛ در اندازه‌گیری R3 روی عناصر نمونه‌ی shop عمدتاً IRANSansXFaNum بود.",
+    "IRANSansXFaNum": "بدنه، ناوبری، قیمت، دکمه (نمونه shop/home)"
+  },
+  "f14Source": "qa/reports/phase-1/f14-motion-shadows.json (بدون transition:none)"
 }
