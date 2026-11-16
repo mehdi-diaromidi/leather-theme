@@ -1,0 +1,22 @@
+{
+  "name": "leather-theme",
+  "version": "1.0.0",
+  "description": "بازسازی ظاهر و رفتار سایت [bagllet.ir](https://bagllet.ir) به‌صورت قالب وردپرس مستقل (بدون Woodmart)، قابل فروش در بازارهای فارسی‌زبان.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "type": "module",
+  "scripts": {
+    "qa:baseline": "node qa/baseline/capture.mjs",
+    "qa:login": "echo Open headed browser once and save storage to qa/.auth/ (manual)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "dotenv": "^18.0.10",
+    "playwright": "^1.65.1"
+  }
+}

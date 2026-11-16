@@ -1,0 +1,30 @@
+{
+  "site": "https://bagllet.ir",
+  "source": "live CSSOM observe (phase 1)",
+  "capturedAt": "2026-11-16T20:27:00Z",
+  "mediaQueries": [
+    "(hover: hover)",
+    "(max-width: 1024px)",
+    "(max-width: 1439px)",
+    "(max-width: 479px)",
+    "(max-width: 576px)",
+    "(max-width: 767.98px)",
+    "(max-width: 767px)",
+    "(max-width: 768.98px)",
+    "(min-width: 1024px)",
+    "(min-width: 1025px)",
+    "(min-width: 1200px)",
+    "(min-width: 1280px)",
+    "(min-width: 1350px)",
+    "(min-width: 1440px)",
+    "(min-width: 768px)",
+    "(min-width: 769px)",
+    "(prefers-reduced-motion: reduce)",
+    "screen and (max-width: 1024px)",
+    "screen and (max-width: 600px)",
+    "screen and (max-width: 767px)",
+    "screen and (max-width: 768px)",
+    "screen and (max-width: 782px)"
+  ],
+  "primaryBreakpointsPx": [390, 768, 1024, 1280, 1440]
+}

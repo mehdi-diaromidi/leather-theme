@@ -1,0 +1,33 @@
+{
+    "exported_at":  "2026-11-16T20:32:01+00:00",
+    "wp_version":  "7.1.4",
+    "php_version":  "8.3.36",
+    "theme":  {
+                  "name":  "Woodmart",
+                  "version":  "8.5.5",
+                  "stylesheet":  "woodmart",
+                  "template":  "woodmart"
+              },
+    "woo_version":  "11.2.2",
+    "layout_count":  13,
+    "menu_count":  2,
+    "swatch_tax_count":  10,
+    "active_plugins":  [
+                           "RTL-CareUnit/RTL-CareUnit.php",
+                           "bagllet-widgets/bagllet-widgets.php",
+                           "classic-editor/classic-editor.php",
+                           "classic-widgets/classic-widgets.php",
+                           "duplicator/duplicator.php",
+                           "duplicator/duplicator.php",
+                           "elementor-pro/elementor-pro.php",
+                           "elementor/elementor.php",
+                           "perfmatters/perfmatters.php",
+                           "woocommerce/woocommerce.php",
+                           "woodmart-core/woodmart-core.php",
+                           "woodmart-plus/woodmart-plus.php",
+                           "wp-rocket/wp-rocket.php",
+                           "wp-story/wp-story.php"
+                       ],
+    "page_on_front":  "77",
+    "shop_page":  "7"
+}

@@ -21,6 +21,8 @@ dist/
 qa/reports/
 qa/.auth/
 *.log
+tools/node/
+tools/_ftp-*.txt
 
 # --- سیستم‌عامل / ادیتور ---
 .DS_Store

@@ -1,0 +1,59 @@
+{
+  "pageId": "my-account",
+  "width": 768,
+  "capturedAt": "2026-11-16T21:31:07.342Z",
+  "elements": {
+    "header": {
+      "selector": "header.whb-header, header",
+      "bbox": {
+        "x": 128,
+        "y": 257,
+        "width": 498,
+        "height": 114
+      },
+      "style": {
+        "fontFamily": "iranyekan, Tahoma, sans-serif",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "20.8px",
+        "letterSpacing": "normal",
+        "color": "rgb(38, 52, 73)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "paddingTop": "31px",
+        "paddingRight": "36px",
+        "paddingBottom": "0px",
+        "paddingLeft": "36px",
+        "marginTop": "0px",
+        "marginRight": "0px",
+        "marginBottom": "0px",
+        "marginLeft": "0px",
+        "borderTopWidth": "0px",
+        "borderRightWidth": "0px",
+        "borderBottomWidth": "0px",
+        "borderLeftWidth": "0px",
+        "borderTopColor": "rgb(38, 52, 73)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "zIndex": "auto",
+        "display": "flex",
+        "width": "498px",
+        "height": "113.5px",
+        "maxWidth": "none",
+        "gap": "20px"
+      }
+    },
+    "topBar": null,
+    "logo": null,
+    "mainNav": null,
+    "search": null,
+    "cart": null,
+    "wishlist": null,
+    "footer": null,
+    "productCard": null,
+    "addToCartBtn": null,
+    "price": null,
+    "heading": null,
+    "buttonPrimary": null
+  }
+}

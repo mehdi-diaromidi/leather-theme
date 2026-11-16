@@ -40,8 +40,12 @@ docs/                        نقشه‌راه، پروتکل بازبینی، h
 - RTL / فارسی / i18n (`bagllet`)
 - فونت بسته‌ی فروش: Vazirmatn (OFL)؛ IRANYekan فقط از طریق آپلود سفارشی روی سایت bagllet.ir
 
+## ابزار توسعه
+- Node LTS (در این محیط: `tools/node` portable، ignore‌شده) + Playwright برای baseline
+- `npm run qa:baseline` — اسکرین‌شات و specs از سایت زنده
+
 ## شروع
 
 1. `docs/THEME-ROADMAP.md` را کامل بخوان.
 2. روند تحویل/بازبینی: `docs/REVIEW-PROTOCOL.md`.
-3. وضعیت فازها: `docs/PROGRESS.md`. کار از **فاز ۰** شروع می‌شود.
+3. وضعیت فازها: `docs/PROGRESS.md`.
