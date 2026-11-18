@@ -121,6 +121,31 @@
 	--btn-height: 44px;
 	--decorative-line-width: 32px;
 	--decorative-line-thickness: 2px;
+	--hairline: 1px;
+	--border-width: 1px;
+	--bp-tablet: 1023px;
+	--bp-mobile: 767px;
+
+	/*
+	 * Parity tokens from live site (qa/baseline/specs/_tokens.json).
+	 * Source measured on bagllet.ir; used when live appearance differs from style guide.
+	 * See docs/inventory/tokens-reconciliation.md
+	 */
+	--live-color-atc: #ac9a83; /* rgb(172,154,131) add-to-cart / clay-adjacent */
+	--live-color-gray-71: #474747; /* rgb(71,71,71) */
+	--live-color-gray-119: #777777; /* rgb(119,119,119) */
+	--live-color-text-51: #333333; /* rgb(51,51,51) */
+	--live-color-navy-82-100-122: #52647a; /* rgb(82,100,122) */
+	--live-color-gold-224-178-82: #e0b252; /* rgb(224,178,82) accent */
+	--live-radius-pillish: 35px; /* measured; style guide has no pill */
+	--live-radius-9: 9px;
+	--live-radius-5: 5px;
+	--live-shadow-dropdown: rgba(0, 0, 0, 0.12) 0px 16px 40px 0px;
+	--live-shadow-modal: rgba(0, 0, 0, 0.5) 0px 20px 50px 0px;
+	--live-shadow-badge: rgba(0, 0, 0, 0.17) 0px 0px 4px 0px;
+	--live-ease-wood: cubic-bezier(0.19, 1, 0.22, 1);
+	--live-font-iranyekan: iranyekan, Tahoma, sans-serif;
+	--live-font-iransansx: IRANSansXFaNum, Arial, Helvetica, sans-serif;
 }
 
 @media (max-width: 767px) {

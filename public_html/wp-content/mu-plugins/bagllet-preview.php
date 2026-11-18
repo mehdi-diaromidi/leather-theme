@@ -2,11 +2,14 @@
 /**
  * Plugin Name: Bagllet Preview Switcher
  * Description: Applies the bagllet theme only when a secret preview cookie/query is present. Development only — not in sales zip.
- * Version: 0.2.0
+ * Version: 0.2.1
  * Author: Mehdi Diaromidi
  *
  * Key file (NOT in git): wp-content/mu-plugins/bagllet-preview-key.php
  * must define BAGLLET_PREVIEW_KEY. Generated from .env.local via tools/deploy.
+ *
+ * Rollback: delete mu-plugins/bagllet-preview.php and bagllet-preview-key.php via host panel/FTP
+ * (deploy tooling intentionally has no DELETE).
  *
  * @package Bagllet
  */
@@ -27,6 +30,16 @@ function bagllet_preview_bootstrap_key() {
 bagllet_preview_bootstrap_key();
 
 /**
+ * Cookie value derived from secret (never store raw key in cookie).
+ *
+ * @param string $key Secret.
+ * @return string
+ */
+function bagllet_preview_cookie_token( $key ) {
+	return hash_hmac( 'sha256', 'bagllet_preview', (string) $key );
+}
+
+/**
  * Whether the current request should see the bagllet theme.
  *
  * @return bool
@@ -35,7 +48,8 @@ function bagllet_preview_is_active() {
 	if ( ! defined( 'BAGLLET_PREVIEW_KEY' ) || ! BAGLLET_PREVIEW_KEY ) {
 		return false;
 	}
-	$key = (string) BAGLLET_PREVIEW_KEY;
+	$key   = (string) BAGLLET_PREVIEW_KEY;
+	$token = bagllet_preview_cookie_token( $key );
 
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- preview gate, read-only switch.
 	$q = isset( $_GET['bagllet_preview'] ) ? sanitize_text_field( wp_unslash( $_GET['bagllet_preview'] ) ) : '';
@@ -43,7 +57,7 @@ function bagllet_preview_is_active() {
 		if ( ! headers_sent() ) {
 			setcookie(
 				'bagllet_preview',
-				$key,
+				$token,
 				array(
 					'expires'  => time() + DAY_IN_SECONDS,
 					'path'     => COOKIEPATH ? COOKIEPATH : '/',
@@ -59,7 +73,7 @@ function bagllet_preview_is_active() {
 
 	if ( isset( $_COOKIE['bagllet_preview'] ) ) {
 		$cookie = sanitize_text_field( wp_unslash( $_COOKIE['bagllet_preview'] ) );
-		return hash_equals( $key, $cookie );
+		return hash_equals( $token, $cookie );
 	}
 
 	return false;
@@ -83,8 +97,7 @@ add_filter( 'option_template', 'bagllet_preview_force_theme', 100 );
 add_filter( 'option_stylesheet', 'bagllet_preview_force_theme', 100 );
 
 /**
- * In preview, dequeue legacy bagllet-widgets assets written for Woodmart
- * so parity work is not polluted (logic moves into the theme in phases 3–7).
+ * In preview, dequeue legacy bagllet-widgets assets written for Woodmart.
  */
 function bagllet_preview_dequeue_legacy_assets() {
 	if ( ! bagllet_preview_is_active() ) {
@@ -92,6 +105,7 @@ function bagllet_preview_dequeue_legacy_assets() {
 	}
 
 	$handles = array(
+		'bagllet-site',
 		'site-theme',
 		'bagllet-site-theme',
 		'bagllet-widgets-site-theme',
@@ -107,7 +121,6 @@ function bagllet_preview_dequeue_legacy_assets() {
 		wp_deregister_script( $handle );
 	}
 
-	// Catch common path-based enqueues from bagllet-widgets.
 	global $wp_styles, $wp_scripts;
 	foreach ( array( $wp_styles, $wp_scripts ) as $queue ) {
 		if ( ! $queue || empty( $queue->registered ) ) {
@@ -115,7 +128,10 @@ function bagllet_preview_dequeue_legacy_assets() {
 		}
 		foreach ( $queue->registered as $handle => $obj ) {
 			$src = isset( $obj->src ) ? (string) $obj->src : '';
-			if ( false !== strpos( $src, 'bagllet-widgets' ) && ( false !== strpos( $src, 'site-theme' ) || false !== strpos( $src, '/footer/' ) ) ) {
+			if ( false === strpos( $src, 'bagllet-widgets' ) ) {
+				continue;
+			}
+			if ( false !== strpos( $src, 'site-theme' ) || false !== strpos( $src, '/footer/' ) || false !== strpos( $src, 'bagllet-site' ) ) {
 				if ( $queue === $wp_styles ) {
 					wp_dequeue_style( $handle );
 					wp_deregister_style( $handle );

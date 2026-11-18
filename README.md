@@ -48,6 +48,13 @@ docs/                        نقشه‌راه، پروتکل بازبینی، h
 - `npm run qa:diff:self` — خودآزمایی pixelmatch
 - `npm run qa:phpcs` — WPCS روی قالب و mu-plugin پیش‌نمایش
 - `npm run deploy:dry` / `npm run deploy` — آپلود امن FTP (اسرار فقط `.env.local`)
+- `npm run qa:capture:candidate -- --mode preview` — عکس از پیش‌نمایش برای diff
+- `npm run qa:tokens-sync` — همگامی پالت `theme.json` با `tokens.css`
+
+### پیش‌نمایش و rollback
+1. `node tools/deploy.mjs --dry-run` سپس `node tools/deploy.mjs` (ترتیب: قالب → کلید → `bagllet-preview.php`).
+2. باز کردن `https://bagllet.ir/?bagllet_preview=<KEY>` (کلید در `.env.local`).
+3. **بازگشت:** از پنل هاست یا FTP دو فایل `wp-content/mu-plugins/bagllet-preview.php` و `bagllet-preview-key.php` را دستی حذف کنید (ابزار deploy عمداً DELETE ندارد).
 
 ## شروع
 

@@ -7,6 +7,7 @@ ftp
 .env.*
 !.env.example
 *.pem
+*.key
 wp-config.php
 credentials*
 *secrets*
@@ -18,6 +19,7 @@ vendor/
 dist/
 *.zip
 qa/reports/
+qa/candidates/
 qa/.auth/
 qa/baseline-private/
 *.log

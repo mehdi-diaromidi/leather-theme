@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom font upload support (IRANYekan / IRANSansXFaNum on bagllet.ir).
- * Bundled default: Vazirmatn (OFL). Commercial fonts are never shipped in the sales zip.
+ * Bundled default: Vazirmatn (OFL) via base.css @font-face only (not duplicated in theme.json).
  *
  * @package Bagllet
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Returns theme_mod path for a custom woff2 font file, if set.
+ * Returns theme_mod path for a custom woff2 font file, if set and safe.
  *
  * @return string Absolute filesystem path or empty.
  */
@@ -20,16 +20,30 @@ function bagllet_get_custom_font_path() {
 	if ( ! is_string( $path ) || '' === $path ) {
 		return '';
 	}
-	$path    = wp_normalize_path( $path );
+
 	$uploads = wp_upload_dir();
-	$basedir = isset( $uploads['basedir'] ) ? wp_normalize_path( $uploads['basedir'] ) : '';
-	if ( ! $basedir || 0 !== strpos( $path, $basedir ) ) {
+	if ( empty( $uploads['basedir'] ) ) {
 		return '';
 	}
-	if ( ! is_readable( $path ) || ! preg_match( '/\.woff2$/i', $path ) ) {
+
+	$basedir  = realpath( $uploads['basedir'] );
+	$resolved = realpath( $path );
+	if ( ! $basedir || ! $resolved ) {
 		return '';
 	}
-	return $path;
+
+	$basedir_n  = wp_normalize_path( $basedir );
+	$resolved_n = wp_normalize_path( $resolved );
+	$prefix     = trailingslashit( $basedir_n );
+	if ( 0 !== strpos( $resolved_n, $prefix ) && $resolved_n !== $basedir_n ) {
+		return '';
+	}
+
+	if ( ! is_readable( $resolved_n ) || ! preg_match( '/\.woff2$/i', $resolved_n ) ) {
+		return '';
+	}
+
+	return $resolved_n;
 }
 
 /**
@@ -42,9 +56,10 @@ function bagllet_get_custom_font_css() {
 	if ( ! $path ) {
 		return '';
 	}
+
 	$uploads = wp_upload_dir();
 	$url     = str_replace(
-		wp_normalize_path( $uploads['basedir'] ),
+		wp_normalize_path( realpath( $uploads['basedir'] ) ),
 		$uploads['baseurl'],
 		$path
 	);
@@ -52,6 +67,7 @@ function bagllet_get_custom_font_css() {
 	if ( ! $url ) {
 		return '';
 	}
+
 	$family = sanitize_text_field( get_theme_mod( 'bagllet_custom_font_family', 'BaglletCustom' ) );
 	if ( '' === $family ) {
 		$family = 'BaglletCustom';

@@ -9,8 +9,10 @@
     "qa:states": "node qa/baseline/states.mjs",
     "qa:login": "node qa/baseline/login.mjs",
     "qa:checks": "node qa/checks/forbidden.mjs",
+    "qa:tokens-sync": "node qa/checks/tokens-sync.mjs",
     "qa:diff": "node qa/diff/compare.mjs",
-    "qa:diff:self": "node qa/diff/compare.mjs --self-test",
+    "qa:capture:candidate": "node qa/diff/capture-candidate.mjs",
+    "qa:diff:specs": "node qa/diff/compare-specs.mjs",
     "qa:phpcs": "vendor/bin/phpcs --standard=phpcs.xml",
     "deploy": "node tools/deploy.mjs",
     "deploy:dry": "node tools/deploy.mjs --dry-run"

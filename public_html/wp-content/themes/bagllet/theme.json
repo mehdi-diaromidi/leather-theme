@@ -41,30 +41,7 @@
 				{
 					"fontFamily": "Vazirmatn, Tahoma, system-ui, sans-serif",
 					"name": "Vazirmatn",
-					"slug": "vazirmatn",
-					"fontFace": [
-						{
-							"fontFamily": "Vazirmatn",
-							"fontWeight": "300",
-							"fontStyle": "normal",
-							"fontDisplay": "swap",
-							"src": [ "file:./assets/fonts/vazirmatn/Vazirmatn-Light.woff2" ]
-						},
-						{
-							"fontFamily": "Vazirmatn",
-							"fontWeight": "400",
-							"fontStyle": "normal",
-							"fontDisplay": "swap",
-							"src": [ "file:./assets/fonts/vazirmatn/Vazirmatn-Regular.woff2" ]
-						},
-						{
-							"fontFamily": "Vazirmatn",
-							"fontWeight": "700",
-							"fontStyle": "normal",
-							"fontDisplay": "swap",
-							"src": [ "file:./assets/fonts/vazirmatn/Vazirmatn-Bold.woff2" ]
-						}
-					]
+					"slug": "vazirmatn"
 				}
 			],
 			"fontSizes": [
