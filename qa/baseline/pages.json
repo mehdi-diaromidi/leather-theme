@@ -1,0 +1,31 @@
+{
+  "site": "https://bagllet.ir",
+  "widths": [1440, 768, 390],
+  "headerFooterWidths": [1280, 1024],
+  "maskSelectors": [
+    ".wd-instagram",
+    ".instagram-widget",
+    ".elementor-widget-bagllet-instagram",
+    ".wd-slider .swiper-wrapper",
+    "time",
+    ".wd-timer",
+    "#wpadminbar"
+  ],
+  "pages": [
+    { "id": "home", "url": "/", "title": "صفحه اصلی" },
+    { "id": "about", "url": "/about/", "title": "درباره ما" },
+    { "id": "contact", "url": "/contact-us/", "title": "تماس با ما" },
+    { "id": "shop", "url": "/shop/", "title": "فروشگاه" },
+    { "id": "cat-womens", "url": "/product-category/womens-leather/", "title": "دسته زنانه" },
+    { "id": "cat-mens", "url": "/product-category/mens-leather/", "title": "دسته مردانه" },
+    { "id": "cat-womens-bag", "url": "/product-category/womens-leather/womens-leather-bag/", "title": "کیف زنانه" },
+    { "id": "cat-mens-bag", "url": "/product-category/mens-leather/mens-leather-bag/", "title": "کیف مردانه" },
+    { "id": "products-categories", "url": "/products-categories/", "title": "صفحه دسته‌ها" },
+    { "id": "cart-empty", "url": "/cart/", "title": "سبد خالی", "guest": true },
+    { "id": "wishlist", "url": "/%d8%b9%d9%84%d8%a7%d9%82%d9%87-%d9%85%d9%86%d8%af%db%8c-%d9%87%d8%a7/", "title": "علاقه‌مندی‌ها" },
+    { "id": "compare", "url": "/%d9%85%d9%82%d8%a7%db%8c%d8%b3%d9%87/", "title": "مقایسه" },
+    { "id": "search-results", "url": "/?s=%DA%A9%DB%8C%D9%81&post_type=product", "title": "جستجو با نتیجه" },
+    { "id": "search-empty", "url": "/?s=zzzzznofind999&post_type=product", "title": "جستجو بدون نتیجه" },
+    { "id": "404", "url": "/this-page-does-not-exist-bagllet-qa-404/", "title": "۴۰۴" }
+  ]
+}

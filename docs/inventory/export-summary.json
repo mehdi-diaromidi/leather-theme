@@ -1,0 +1,23 @@
+{
+  "note": "Full export with plugin versions stays in qa/data/ (gitignored). Public summary only.",
+  "exported_at": "2026-11-16T20:32:01+00:00",
+  "wp_major": "7.1",
+  "php_major": "8.3",
+  "theme": {
+    "name": "Woodmart",
+    "stylesheet": "woodmart"
+  },
+  "layout_count": 13,
+  "menu_count": 2,
+  "swatch_tax_count": 10,
+  "page_on_front": "77",
+  "appearance_related_plugins": [
+    "woocommerce",
+    "elementor",
+    "elementor-pro",
+    "woodmart-core",
+    "woodmart-plus",
+    "bagllet-widgets",
+    "wp-story"
+  ]
+}

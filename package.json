@@ -1,0 +1,17 @@
+{
+  "name": "leather-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bagllet WordPress theme conversion — baseline and build tooling.",
+  "type": "module",
+  "scripts": {
+    "qa:baseline": "node qa/baseline/capture.mjs",
+    "qa:states": "node qa/baseline/states.mjs",
+    "qa:login": "node qa/baseline/login.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "dotenv": "^18.0.10",
+    "playwright": "^1.65.1"
+  }
+}
