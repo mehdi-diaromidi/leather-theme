@@ -14,6 +14,8 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 این قالب برای فروشگاه‌های RTL/فارسی طراحی شده است؛ جهت صفحه از تنظیمات زبان وردپرس (`language_attributes` / `is_rtl`) می‌آید.
 
 == Changelog ==
+= 0.2.2 =
+* فاز ۲ R3: رفع تداخل نام `bagllet_widgets_init` با پلاگین؛ تست زنده روی دامنهٔ فعلی.
 = 0.2.1 =
 * فاز ۲ R2: parity tokens، پیش‌نمایش واقعی، ابزار diff/candidate.
 = 0.2.0 =

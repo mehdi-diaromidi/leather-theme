@@ -3,7 +3,9 @@
  *
  * node qa/diff/compare.mjs --page home --width 1440 --candidate path.png
  * node qa/diff/compare.mjs --all --candidate-dir qa/candidates
- * node qa/diff/compare.mjs --noise-floor  (compare two woodmart captures if present)
+ * node qa/diff/compare.mjs --noise-floor
+ *   Compares two LIVE woodmart captures: qa/candidates/noise-a|b/home/1440.png
+ *   (must be separate Playwright captures — not file copies of baseline).
  */
 import fs from 'fs';
 import path from 'path';
@@ -73,10 +75,13 @@ if (args.noiseFloor) {
 	const a = path.join(root, 'qa/candidates/noise-a/home/1440.png');
 	const b = path.join(root, 'qa/candidates/noise-b/home/1440.png');
 	if (!fs.existsSync(a) || !fs.existsSync(b)) {
-		console.error('noise-floor needs qa/candidates/noise-a|b/home/1440.png');
+		console.error('noise-floor needs two LIVE captures: qa/candidates/noise-a|b/home/1440.png (not baseline copies)');
 		process.exit(1);
 	}
-	const result = diffFiles(a, b, path.join(reportDir, 'diff-noise-floor-home-1440.png'));
+	const result = {
+		...diffFiles(a, b, path.join(reportDir, 'diff-noise-floor-home-1440.png')),
+		note: 'live-woodmart-vs-live-woodmart',
+	};
 	fs.writeFileSync(path.join(reportDir, 'noise-floor.json'), JSON.stringify(result, null, 2));
 	console.log(JSON.stringify(result, null, 2));
 	process.exit(result.ok === false && result.reason === 'size-mismatch' ? 1 : 0);

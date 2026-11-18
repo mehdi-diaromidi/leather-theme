@@ -1,70 +1,68 @@
-# فاز ۲ — اسکلت قالب، توکن‌ها، ابزار QA — تحویل R2
+# فاز ۲ — اسکلت قالب، توکن‌ها، ابزار QA — تحویل R3
 
 - شاخه: `phase/2-skeleton`
 - remote: `mehdi-diaromidi/leather-theme`
 - هویت: `mehdi-diaromidi <mehdidiaromidi@gmail.com>`
-- بازبینی قبلی: [phase-2-R1](../review/phase-2-R1.md)
+- بازبینی قبلی: [phase-2-R1](../review/phase-2-R1.md) · [phase-2-R2](../review/phase-2-R2.md)
+- Staging زنده: `https://baglletleather.com/`
 
-## Fix log (R2)
+## Fix log (R3)
 
 | یافته | اقدام |
 |---|---|
-| F1 | FTP OK: آپلود قالب سپس کلید سپس `bagllet-preview.php`. لیست FTP تأیید شد. `debug.log` بدون notice/warning مربوط به bagllet. **HTTP عمومی bagllet.ir از این محیط resolve نمی‌شود** (DNS fail روی 8.8.8.8؛ IP+SNI → صفحه پیش‌فرض هاست / گواهی منقضی) — مرورگر پیش‌نمایش زنده از اینجا ممکن نشد. Rollback در README. |
-| F2 | `qa:capture:candidate`؛ `qa:diff --all` با آستانه 0.3٪ و fail روی عدم هم‌اندازگی؛ `qa:diff:specs` ±1px؛ کف نویز (دو کپی baseline): **0٪** |
-| F3 | `docs/inventory/tokens-reconciliation.md` + بلوک `--live-*` در `tokens.css` |
-| F4 | حذف `dir="rtl"` دستی از `header.php` |
-| F5 | hover Clay فقط روی سطح تیره؛ `max-width` فقط `.bagllet-prose` |
-| F6 | Requires ≥6.3، Tested up to 6.8، نسخه قالب 0.2.1 |
-| F7 | `realpath` در `fonts.php`؛ حذف `fontFace` تکراری از `theme.json` (فقط `base.css`) |
-| F8 | `deploy.mjs` با normalize/`..`، `--config -`، حذف `deploy.ps1`، `*.key` در gitignore، تلاش TLS |
-| F9 | advisory scan برای bagllet-widgets؛ rgb/px؛ `qa:tokens-sync` |
-| F10 | کوکی = HMAC؛ handle واقعی `bagllet-site` |
+| ترتیب پس از رفع دامنه | دامنه به `baglletleather.com`؛ بدون کلید = Woodmart؛ با کلید = قالب bagllet؛ login سالم |
+| Fatal پیش‌نمایش | تداخل `bagllet_widgets_init` با پلاگین → `bagllet_theme_sidebars_init`؛ نسخه قالب **0.2.2** |
+| N1 | نام هاست FTP و IP از handoff/evidence حذف شد (`<ftp-host>` / `<server-ip>` در صورت نیاز) |
+| N2 | کف نویز از **دو capture زنده Woodmart**؛ توضیح `--noise-floor` اصلاح شد |
+
+## Fix log (R2 — خلاصه)
+
+F2–F10 در دور قبل در کد؛ F1 اکنون با تست زنده تکمیل شد.
 
 ## انجام‌شده (DoD)
 
-- [x] اسکلت + توکن (شناسنامه + parity live)
-- [x] ابزار QA کامل‌تر (candidate/diff/specs/tokens-sync)
+- [x] اسکلت + توکن + ابزار QA
 - [x] phpcs بدون error
-- [x] چک ممنوعه‌ها صفر (advisory widgets: 222)
-- [x] آپلود FTP قالب + پیش‌نمایش (تأیید list)
-- [ ] اسکرین/Network زنده از پیش‌نمایش — **مسدود به‌خاطر DNS عمومی bagllet.ir**
+- [x] آپلود FTP + mu-plugin پیش‌نمایش
+- [x] بدون کلید: Woodmart؛ با کلید: bagllet، بدون منبع `/themes/woodmart/`
+- [x] کف نویز زنده + diff پیش‌نمایش
+- [x] مدرک سه‌عرضه `preview-live-*.webp`
 
 ## نتایج QA
 
-### phpcs (خام)
+### phpcs
 ```
 .......... 10 / 10 (100%)
-Time: 2.77 secs; Memory: 14MB
 ```
-(فایل کامل: `qa/reports/phase-2/phpcs.txt` — ignore)
 
 ### debug.log
-- قبل از آپلود در این محیط موجود نبود (0 بایت).
-- بعد: `qa/reports/phase-2/debug-after.log` — خطوط مربوط به jalali-js / show_ui / MCP؛ **هیچ خط bagllet نیست**.
+- Fatal قبل از hotfix: `Cannot redeclare bagllet_widgets_init()` (ثبت شد).
+- پس از hotfix: بدون Fatal/notice جدید از bagllet.
 
-### FTP (تأیید روی سرور)
-```
-wp-content/themes/bagllet/ — style.css, functions.php, assets/, …
-wp-content/mu-plugins/ — bagllet-preview.php, bagllet-preview-key.php
-```
+### بدون کلید / با کلید
+| حالت | نتیجه |
+|---|---|
+| `/` بدون کلید | 200، `/themes/woodmart/` |
+| `/?bagllet_preview=…` | 200، `/themes/bagllet/`، `hasWoodmart=false` |
+| `wp-login.php` | 200 |
 
 ### Diff
 | آزمون | نتیجه |
 |---|---|
-| کف نویز home/1440 (دو capture یکسان از baseline) | **0٪** PASS |
-| diff پیش‌نمایش زنده vs baseline | **اجرا نشد** (DNS/HTTP عمومی) — انتظار درصد بالا پس از رفع DNS |
+| کف نویز زنده home/1440 (noise-a vs noise-b) | **0.041٪** PASS |
+| `qa:diff --all` روی پیش‌نمایش home | **size-mismatch FAIL** (ارتفاع اسکلت کمتر از baseline — انتظار فاز ۲) |
 
 ### توکن‌ها
-جدول کامل: `docs/inventory/tokens-reconciliation.md`. `npm run qa:tokens-sync` → ok.
+`docs/inventory/tokens-reconciliation.md`؛ `qa:tokens-sync` ok.
 
 ## مدرک بصری
-- اسکلت محلی قبلی همچنان در `docs/handoff/evidence/phase-2/skeleton-*.webp`
-- `console-network.md` به‌روز شد با وضعیت DNS/HTTP
-- تصاویر live preview: در انتظار رفع DNS دامنه
+- `docs/handoff/evidence/phase-2/preview-live-{1440,768,390}.webp`
+- `console-network.md` به‌روز (R3)
+- اسکلت محلی قبلی: `skeleton-*.webp`
 
 ## تست‌نشده / ریسک
-- مشاهده مرورگر با کلید روی دامنه عمومی تا وقتی DNS/گواهی درست نشود
 - HTML قدیمی bagllet-widgets ممکن است در پیش‌نمایش بماند (فاز ۳)
+- مرورگر داخلی Cursor پشت پروکسی سیستم timeout می‌دهد؛ تست با Playwright مستقیم/`curl` انجام شد
 
 ## پرسش‌ها
-- DNS عمومی `bagllet.ir` از این محیط fail است؛ آیا رکورد A/NS اخیراً عوض شده؟ هاست FTP (`1540664912.cloudylink.com` → `91.212.174.80`) با Host/SNI برای `bagllet.ir` فقط LiteSpeed 404/صفحهٔ پیش‌فرض می‌دهد، نه وردپرس.
+- آیا `SITE_URL` و لینک‌های عملیاتی همه جا به `baglletleather.com` به‌روز شوند (نقشه‌راه/شناسنامه) یا فقط tooling کافی است؟

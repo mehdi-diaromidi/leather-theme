@@ -4,7 +4,7 @@
 |---|---|---|---|---|
 | 0 | ایمنی ریپو و ساختار | ✅ تاییدشده | phase/0-repo | [R1](review/phase-0-R1.md) · [R2](review/phase-0-R2.md) · [APPROVED](review/phase-0-APPROVED.md) |
 | 1 | خط پایه و فهرست قابلیت‌ها | ✅ تاییدشده | phase/1-baseline | [R1](review/phase-1-R1.md) · [R2](review/phase-1-R2.md) · [R3](review/phase-1-R3.md) · [APPROVED](review/phase-1-APPROVED.md) |
-| 2 | اسکلت قالب، توکن‌ها، ابزار QA | 🔍 در انتظار بازبینی (R2) | phase/2-skeleton | [R1](review/phase-2-R1.md) |
+| 2 | اسکلت قالب، توکن‌ها، ابزار QA | 🔍 در انتظار بازبینی (R3) | phase/2-skeleton | [R1](review/phase-2-R1.md) · [R2](review/phase-2-R2.md) |
 | 3 | هدر، فوتر، ناوبری | ⏳ | phase/3-header-footer | — |
 | 4 | صفحات محتوایی | ⏳ | phase/4-content | — |
 | 5 | ووکامرس: فروشگاه و کارت | ⏳ | phase/5-shop | — |

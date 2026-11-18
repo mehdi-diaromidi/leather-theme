@@ -1,6 +1,6 @@
 # bagllet — قالب اختصاصی وردپرس
 
-بازسازی ظاهر و رفتار سایت [bagllet.ir](https://bagllet.ir) به‌صورت قالب وردپرس مستقل (بدون Woodmart)، قابل فروش در بازارهای فارسی‌زبان.
+بازسازی ظاهر و رفتار سایت [baglletleather.com](https://baglletleather.com/) به‌صورت قالب وردپرس مستقل (بدون Woodmart)، قابل فروش در بازارهای فارسی‌زبان.
 
 ## ساختار (هم‌ریخت با هاست)
 
@@ -53,7 +53,7 @@ docs/                        نقشه‌راه، پروتکل بازبینی، h
 
 ### پیش‌نمایش و rollback
 1. `node tools/deploy.mjs --dry-run` سپس `node tools/deploy.mjs` (ترتیب: قالب → کلید → `bagllet-preview.php`).
-2. باز کردن `https://bagllet.ir/?bagllet_preview=<KEY>` (کلید در `.env.local`).
+2. باز کردن `https://baglletleather.com/?bagllet_preview=<KEY>` (کلید در `.env.local`).
 3. **بازگشت:** از پنل هاست یا FTP دو فایل `wp-content/mu-plugins/bagllet-preview.php` و `bagllet-preview-key.php` را دستی حذف کنید (ابزار deploy عمداً DELETE ندارد).
 
 ## شروع

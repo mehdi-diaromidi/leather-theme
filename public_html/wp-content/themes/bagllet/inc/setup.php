@@ -63,9 +63,9 @@ function bagllet_setup() {
 add_action( 'after_setup_theme', 'bagllet_setup' );
 
 /**
- * Registers widget areas.
+ * Registers theme sidebars (name must not collide with bagllet-widgets plugin).
  */
-function bagllet_widgets_init() {
+function bagllet_theme_sidebars_init() {
 	register_sidebar(
 		array(
 			'name'          => __( 'سایدبار فروشگاه', 'bagllet' ),
@@ -100,7 +100,7 @@ function bagllet_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'bagllet_widgets_init' );
+add_action( 'widgets_init', 'bagllet_theme_sidebars_init' );
 
 /**
  * Content width.

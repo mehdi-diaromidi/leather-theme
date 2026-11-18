@@ -17,7 +17,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '../..');
 dotenv.config({ path: path.join(root, '.env.local') });
 
-const SITE = (process.env.SITE_URL || 'https://bagllet.ir').replace(/\/$/, '');
+const SITE = (process.env.SITE_URL || 'https://baglletleather.com').replace(/\/$/, '');
 const key = process.env.BAGLLET_PREVIEW_KEY || '';
 const pagesConfig = JSON.parse(fs.readFileSync(path.join(root, 'qa/baseline/pages.json'), 'utf8'));
 const WIDTHS = pagesConfig.widths || [1440, 768, 390];
@@ -41,11 +41,16 @@ const pages = pagesConfig.pages.filter((p) => pageFilter.split(',').includes(p.i
 fs.mkdirSync(outRoot, { recursive: true });
 
 const resolveIp = process.env.BAGLLET_RESOLVE_IP || '';
+// System HTTP proxy often breaks Playwright to the staging host; prefer direct + optional MAP.
+const launchArgs = ['--no-proxy-server', '--proxy-server=direct://'];
+if (resolveIp) {
+	launchArgs.push(
+		`--host-resolver-rules=MAP baglletleather.com ${resolveIp}, MAP www.baglletleather.com ${resolveIp}, MAP bagllet.ir ${resolveIp}, MAP www.bagllet.ir ${resolveIp}`
+	);
+}
 const browser = await chromium.launch({
 	headless: true,
-	args: resolveIp
-		? [`--host-resolver-rules=MAP bagllet.ir ${resolveIp}, MAP www.bagllet.ir ${resolveIp}`]
-		: [],
+	args: launchArgs,
 });
 const report = [];
 
@@ -55,6 +60,7 @@ for (const entry of pages) {
 			viewport: { width, height: 900 },
 			locale: 'fa-IR',
 			reducedMotion: 'reduce',
+			ignoreHTTPSErrors: !!resolveIp,
 		});
 		const page = await ctx.newPage();
 		let url = entry.url.startsWith('http') ? entry.url : `${SITE}${entry.url}`;
