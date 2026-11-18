@@ -1,0 +1,22 @@
+<?php
+/**
+ * Small helpers.
+ *
+ * @package Bagllet
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Converts Western digits in a string to Persian digits for display.
+ *
+ * @param string $text Input.
+ * @return string
+ */
+function bagllet_persian_digits( $text ) {
+	$western = array( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' );
+	$persian = array( '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹' );
+	return str_replace( $western, $persian, (string) $text );
+}

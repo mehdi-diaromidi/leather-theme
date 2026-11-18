@@ -2,16 +2,15 @@
 .ftp.env
 .ftp.env.*
 ftp
-deploy.ps1
 .vscode/sftp.json
 .env
 .env.*
 !.env.example
 *.pem
-*.key
 wp-config.php
 credentials*
 *secrets*
+public_html/wp-content/mu-plugins/bagllet-preview-key.php
 
 # --- خروجی و وابستگی‌ها ---
 node_modules/
@@ -23,6 +22,7 @@ qa/.auth/
 qa/baseline-private/
 *.log
 tools/node/
+tools/php/
 tools/_ftp-*.txt
 tools/_cmsg.txt
 tools/_commit*.cmd

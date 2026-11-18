@@ -1,0 +1,264 @@
+/**
+ * Base reset, typography, focus, RTL helpers.
+ * Uses only CSS variables from tokens.css — no stray hex/px.
+ */
+
+@font-face {
+	font-family: "Vazirmatn";
+	src: url("../fonts/vazirmatn/Vazirmatn-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vazirmatn";
+	src: url("../fonts/vazirmatn/Vazirmatn-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Vazirmatn";
+	src: url("../fonts/vazirmatn/Vazirmatn-Bold.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	direction: rtl;
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family-custom);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	font-weight: var(--font-weight-regular);
+	letter-spacing: var(--letter-spacing);
+	color: var(--color-black);
+	background-color: var(--color-bg);
+	text-align: start;
+}
+
+img,
+svg,
+video {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: inherit;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+a:hover {
+	color: var(--color-clay);
+}
+
+:focus {
+	outline: none;
+}
+
+:focus-visible {
+	outline: var(--focus-ring-light);
+	outline-offset: var(--focus-offset);
+}
+
+.bagllet-on-dark :focus-visible,
+.bagllet-surface-dark :focus-visible {
+	outline: var(--focus-ring-dark);
+	outline-offset: var(--focus-offset);
+}
+
+h1,
+.h1 {
+	font-size: var(--fs-h1);
+	line-height: var(--lh-h1);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-4);
+}
+
+h2,
+.h2 {
+	font-size: var(--fs-h2);
+	line-height: var(--lh-h2);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-4);
+}
+
+h3,
+.h3 {
+	font-size: var(--fs-h3);
+	line-height: var(--lh-h3);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-3);
+}
+
+h4,
+.h4 {
+	font-size: var(--fs-h4);
+	line-height: var(--lh-h4);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-2);
+}
+
+.bagllet-display {
+	font-size: var(--fs-display);
+	line-height: var(--lh-display);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+}
+
+p {
+	margin: 0 0 var(--space-4);
+	max-width: var(--measure);
+}
+
+.bagllet-container {
+	width: min(100% - (var(--space-4) * 2), var(--container-width));
+	margin-inline: auto;
+}
+
+.bagllet-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+	gap: var(--grid-gap);
+}
+
+@media (max-width: 1023px) {
+	.bagllet-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	.bagllet-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.bagllet-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: var(--btn-height);
+	padding: var(--space-2) var(--space-5);
+	border: 1px solid transparent;
+	border-radius: var(--radius-md);
+	font-family: inherit;
+	font-size: var(--fs-button);
+	line-height: var(--lh-button);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	cursor: pointer;
+	transition: background-color var(--duration-fast) var(--ease-out),
+		color var(--duration-fast) var(--ease-out),
+		border-color var(--duration-fast) var(--ease-out),
+		box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.bagllet-btn--primary {
+	background-color: var(--color-black);
+	color: var(--color-white);
+}
+
+.bagllet-btn--primary:hover {
+	background-color: var(--color-black-elevated);
+	color: var(--color-white);
+}
+
+.bagllet-btn--clay {
+	background-color: var(--color-clay);
+	color: var(--color-black);
+}
+
+.bagllet-btn--clay:hover {
+	background-color: var(--color-clay-hover);
+	box-shadow: var(--shadow-clay);
+	color: var(--color-black);
+}
+
+.bagllet-skip-link {
+	position: absolute;
+	inset-inline-start: var(--space-4);
+	top: var(--space-4);
+	z-index: var(--z-toast);
+	padding: var(--space-2) var(--space-4);
+	background: var(--color-black);
+	color: var(--color-white);
+	border-radius: var(--radius-md);
+	transform: translateY(-200%);
+}
+
+.bagllet-skip-link:focus {
+	transform: translateY(0);
+}
+
+.bagllet-site-header,
+.bagllet-site-footer {
+	background: var(--color-black);
+	color: var(--color-white);
+}
+
+.bagllet-site-header__inner {
+	padding-block: var(--space-4);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+}
+
+.bagllet-site-footer__inner {
+	padding-block: var(--space-8);
+}
+
+.bagllet-site-footer__copy {
+	margin-top: var(--space-6);
+	color: var(--color-text-on-dark-muted);
+}
+
+.bagllet-site-main {
+	min-height: 40vh;
+	padding-block: var(--space-8);
+}
+
+.bagllet-surface-ivory {
+	background: var(--color-ivory);
+	color: var(--color-black);
+}
+
+.bagllet-surface-ivory .bagllet-muted {
+	color: var(--color-text-muted-ivory);
+}
+
+.bagllet-muted {
+	color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important; /* a11y: honor reduced motion */
+		transition: none !important; /* a11y: honor reduced motion */
+		scroll-behavior: auto !important; /* a11y: honor reduced motion */
+	}
+}

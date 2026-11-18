@@ -1,0 +1,151 @@
+/**
+ * Design tokens — sole source for colors, type, space, radius.
+ * Values from: شناسنامه استایل bagllet.ir.md
+ */
+:root {
+	/* Colors — palette */
+	--color-black: #000000;
+	--color-white: #ffffff;
+	--color-clay: #c38d6a;
+	--color-sand: #ceb89b;
+	--color-ivory: #fff1e2;
+
+	/* Colors — supporting */
+	--color-bg: #fafafa;
+	--color-gray-100: #f2f2f2;
+	--color-border: #e6e6e6;
+	--color-text-muted: #6b7280;
+	--color-text-muted-ivory: #4b5563;
+	--color-text-subtle: #9ca3af;
+	--color-black-elevated: #141414;
+	--color-border-dark: #2a2a2a;
+	--color-clay-hover: #bb7d54;
+	--color-success: #2f7d5c;
+	--color-error: #b3402f;
+	--color-text-on-dark-muted: #b5b5b5;
+	--color-overlay: rgba(0, 0, 0, 0.6);
+
+	/* Gradients */
+	--gradient-black-clay: linear-gradient(90deg, var(--color-black), var(--color-clay));
+	--gradient-clay-sand: linear-gradient(90deg, var(--color-clay), var(--color-sand));
+	--gradient-white-ivory: linear-gradient(180deg, var(--color-white), var(--color-ivory));
+
+	/* Typography */
+	--font-family-base: "Vazirmatn", Tahoma, system-ui, sans-serif;
+	--font-family-custom: var(--font-family-base); /* overridden when custom font uploaded */
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--letter-spacing: 0;
+	--measure: 65ch;
+
+	/* Type scale — desktop */
+	--fs-display: 56px;
+	--lh-display: 80px;
+	--fs-h1: 44px;
+	--lh-h1: 62px;
+	--fs-h2: 32px;
+	--lh-h2: 46px;
+	--fs-h3: 24px;
+	--lh-h3: 36px;
+	--fs-h4: 18px;
+	--lh-h4: 28px;
+	--fs-body-lg: 18px;
+	--lh-body-lg: 32px;
+	--fs-body: 16px;
+	--lh-body: 30px;
+	--fs-body-sm: 14px;
+	--lh-body-sm: 24px;
+	--fs-caption: 13px;
+	--lh-caption: 22px;
+	--fs-button: 15px;
+	--lh-button: 24px;
+	--fs-tag: 12px;
+	--lh-tag: 18px;
+	--fs-nav: 15px;
+	--lh-nav: 24px;
+	--fs-price: 20px;
+	--lh-price: 32px;
+	--fs-price-old: 14px;
+	--lh-price-old: 22px;
+
+	/* Radius */
+	--radius-sm: 6px;
+	--radius-md: 8px;
+	--radius-lg: 10px;
+	--radius-xl: 12px;
+
+	/* Space (4px base) */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-7: 32px;
+	--space-8: 40px;
+	--space-9: 48px;
+	--space-10: 64px;
+	--space-11: 80px;
+	--space-12: 96px;
+
+	/* Layout */
+	--container-width: 1280px;
+	--grid-columns: 4;
+	--grid-gap: var(--space-6);
+
+	/* Shadow */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+	--shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+	--shadow-clay: 0 6px 16px rgba(195, 141, 106, 0.35);
+
+	/* Motion */
+	--duration-fast: 150ms;
+	--duration-base: 250ms;
+	--ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+	/* Z-index */
+	--z-header: 100;
+	--z-menu: 200;
+	--z-overlay: 300;
+	--z-modal: 400;
+	--z-toast: 500;
+
+	/* Focus */
+	--focus-ring-light: 2px solid var(--color-black);
+	--focus-ring-dark: 2px solid var(--color-clay);
+	--focus-offset: 2px;
+
+	/* Component sizes */
+	--btn-height: 44px;
+	--decorative-line-width: 32px;
+	--decorative-line-thickness: 2px;
+}
+
+@media (max-width: 767px) {
+	:root {
+		--fs-display: 36px;
+		--lh-display: 52px;
+		--fs-h1: 30px;
+		--lh-h1: 44px;
+		--fs-h2: 24px;
+		--lh-h2: 36px;
+		--fs-h3: 20px;
+		--lh-h3: 30px;
+		--fs-h4: 16px;
+		--lh-h4: 26px;
+		--fs-body-lg: 16px;
+		--lh-body-lg: 28px;
+		--fs-body: 15px;
+		--lh-body: 27px;
+		--fs-button: 14px;
+		--lh-button: 22px;
+		--fs-nav: 16px;
+		--lh-nav: 24px;
+		--fs-price: 18px;
+		--lh-price: 28px;
+		--fs-price-old: 13px;
+		--lh-price-old: 20px;
+	}
+}

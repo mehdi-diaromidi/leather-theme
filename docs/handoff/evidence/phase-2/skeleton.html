@@ -1,0 +1,410 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<style>/**
+ * Design tokens — sole source for colors, type, space, radius.
+ * Values from: شناسنامه استایل bagllet.ir.md
+ */
+:root {
+	/* Colors — palette */
+	--color-black: #000000;
+	--color-white: #ffffff;
+	--color-clay: #c38d6a;
+	--color-sand: #ceb89b;
+	--color-ivory: #fff1e2;
+
+	/* Colors — supporting */
+	--color-bg: #fafafa;
+	--color-gray-100: #f2f2f2;
+	--color-border: #e6e6e6;
+	--color-text-muted: #6b7280;
+	--color-text-muted-ivory: #4b5563;
+	--color-text-subtle: #9ca3af;
+	--color-black-elevated: #141414;
+	--color-border-dark: #2a2a2a;
+	--color-clay-hover: #bb7d54;
+	--color-success: #2f7d5c;
+	--color-error: #b3402f;
+	--color-text-on-dark-muted: #b5b5b5;
+	--color-overlay: rgba(0, 0, 0, 0.6);
+
+	/* Gradients */
+	--gradient-black-clay: linear-gradient(90deg, var(--color-black), var(--color-clay));
+	--gradient-clay-sand: linear-gradient(90deg, var(--color-clay), var(--color-sand));
+	--gradient-white-ivory: linear-gradient(180deg, var(--color-white), var(--color-ivory));
+
+	/* Typography */
+	--font-family-base: "Vazirmatn", Tahoma, system-ui, sans-serif;
+	--font-family-custom: var(--font-family-base); /* overridden when custom font uploaded */
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--letter-spacing: 0;
+	--measure: 65ch;
+
+	/* Type scale — desktop */
+	--fs-display: 56px;
+	--lh-display: 80px;
+	--fs-h1: 44px;
+	--lh-h1: 62px;
+	--fs-h2: 32px;
+	--lh-h2: 46px;
+	--fs-h3: 24px;
+	--lh-h3: 36px;
+	--fs-h4: 18px;
+	--lh-h4: 28px;
+	--fs-body-lg: 18px;
+	--lh-body-lg: 32px;
+	--fs-body: 16px;
+	--lh-body: 30px;
+	--fs-body-sm: 14px;
+	--lh-body-sm: 24px;
+	--fs-caption: 13px;
+	--lh-caption: 22px;
+	--fs-button: 15px;
+	--lh-button: 24px;
+	--fs-tag: 12px;
+	--lh-tag: 18px;
+	--fs-nav: 15px;
+	--lh-nav: 24px;
+	--fs-price: 20px;
+	--lh-price: 32px;
+	--fs-price-old: 14px;
+	--lh-price-old: 22px;
+
+	/* Radius */
+	--radius-sm: 6px;
+	--radius-md: 8px;
+	--radius-lg: 10px;
+	--radius-xl: 12px;
+
+	/* Space (4px base) */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-7: 32px;
+	--space-8: 40px;
+	--space-9: 48px;
+	--space-10: 64px;
+	--space-11: 80px;
+	--space-12: 96px;
+
+	/* Layout */
+	--container-width: 1280px;
+	--grid-columns: 4;
+	--grid-gap: var(--space-6);
+
+	/* Shadow */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+	--shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+	--shadow-clay: 0 6px 16px rgba(195, 141, 106, 0.35);
+
+	/* Motion */
+	--duration-fast: 150ms;
+	--duration-base: 250ms;
+	--ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+	/* Z-index */
+	--z-header: 100;
+	--z-menu: 200;
+	--z-overlay: 300;
+	--z-modal: 400;
+	--z-toast: 500;
+
+	/* Focus */
+	--focus-ring-light: 2px solid var(--color-black);
+	--focus-ring-dark: 2px solid var(--color-clay);
+	--focus-offset: 2px;
+
+	/* Component sizes */
+	--btn-height: 44px;
+	--decorative-line-width: 32px;
+	--decorative-line-thickness: 2px;
+}
+
+@media (max-width: 767px) {
+	:root {
+		--fs-display: 36px;
+		--lh-display: 52px;
+		--fs-h1: 30px;
+		--lh-h1: 44px;
+		--fs-h2: 24px;
+		--lh-h2: 36px;
+		--fs-h3: 20px;
+		--lh-h3: 30px;
+		--fs-h4: 16px;
+		--lh-h4: 26px;
+		--fs-body-lg: 16px;
+		--lh-body-lg: 28px;
+		--fs-body: 15px;
+		--lh-body: 27px;
+		--fs-button: 14px;
+		--lh-button: 22px;
+		--fs-nav: 16px;
+		--lh-nav: 24px;
+		--fs-price: 18px;
+		--lh-price: 28px;
+		--fs-price-old: 13px;
+		--lh-price-old: 20px;
+	}
+}
+
+/**
+ * Base reset, typography, focus, RTL helpers.
+ * Uses only CSS variables from tokens.css — no stray hex/px.
+ */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	direction: rtl;
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family-custom);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	font-weight: var(--font-weight-regular);
+	letter-spacing: var(--letter-spacing);
+	color: var(--color-black);
+	background-color: var(--color-bg);
+	text-align: start;
+}
+
+img,
+svg,
+video {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: inherit;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+a:hover {
+	color: var(--color-clay);
+}
+
+:focus {
+	outline: none;
+}
+
+:focus-visible {
+	outline: var(--focus-ring-light);
+	outline-offset: var(--focus-offset);
+}
+
+.bagllet-on-dark :focus-visible,
+.bagllet-surface-dark :focus-visible {
+	outline: var(--focus-ring-dark);
+	outline-offset: var(--focus-offset);
+}
+
+h1,
+.h1 {
+	font-size: var(--fs-h1);
+	line-height: var(--lh-h1);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-4);
+}
+
+h2,
+.h2 {
+	font-size: var(--fs-h2);
+	line-height: var(--lh-h2);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-4);
+}
+
+h3,
+.h3 {
+	font-size: var(--fs-h3);
+	line-height: var(--lh-h3);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-3);
+}
+
+h4,
+.h4 {
+	font-size: var(--fs-h4);
+	line-height: var(--lh-h4);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	margin: 0 0 var(--space-2);
+}
+
+.bagllet-display {
+	font-size: var(--fs-display);
+	line-height: var(--lh-display);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+}
+
+p {
+	margin: 0 0 var(--space-4);
+	max-width: var(--measure);
+}
+
+.bagllet-container {
+	width: min(100% - (var(--space-4) * 2), var(--container-width));
+	margin-inline: auto;
+}
+
+.bagllet-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+	gap: var(--grid-gap);
+}
+
+@media (max-width: 1023px) {
+	.bagllet-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	.bagllet-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.bagllet-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: var(--btn-height);
+	padding: var(--space-2) var(--space-5);
+	border: 1px solid transparent;
+	border-radius: var(--radius-md);
+	font-family: inherit;
+	font-size: var(--fs-button);
+	line-height: var(--lh-button);
+	font-weight: var(--font-weight-bold);
+	letter-spacing: var(--letter-spacing);
+	cursor: pointer;
+	transition: background-color var(--duration-fast) var(--ease-out),
+		color var(--duration-fast) var(--ease-out),
+		border-color var(--duration-fast) var(--ease-out),
+		box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.bagllet-btn--primary {
+	background-color: var(--color-black);
+	color: var(--color-white);
+}
+
+.bagllet-btn--primary:hover {
+	background-color: var(--color-black-elevated);
+	color: var(--color-white);
+}
+
+.bagllet-btn--clay {
+	background-color: var(--color-clay);
+	color: var(--color-black);
+}
+
+.bagllet-btn--clay:hover {
+	background-color: var(--color-clay-hover);
+	box-shadow: var(--shadow-clay);
+	color: var(--color-black);
+}
+
+.bagllet-skip-link {
+	position: absolute;
+	inset-inline-start: var(--space-4);
+	top: var(--space-4);
+	z-index: var(--z-toast);
+	padding: var(--space-2) var(--space-4);
+	background: var(--color-black);
+	color: var(--color-white);
+	border-radius: var(--radius-md);
+	transform: translateY(-200%);
+}
+
+.bagllet-skip-link:focus {
+	transform: translateY(0);
+}
+
+.bagllet-site-header,
+.bagllet-site-footer {
+	background: var(--color-black);
+	color: var(--color-white);
+}
+
+.bagllet-site-header__inner {
+	padding-block: var(--space-4);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+}
+
+.bagllet-site-footer__inner {
+	padding-block: var(--space-8);
+}
+
+.bagllet-site-footer__copy {
+	margin-top: var(--space-6);
+	color: var(--color-text-on-dark-muted);
+}
+
+.bagllet-site-main {
+	min-height: 40vh;
+	padding-block: var(--space-8);
+}
+
+.bagllet-surface-ivory {
+	background: var(--color-ivory);
+	color: var(--color-black);
+}
+
+.bagllet-surface-ivory .bagllet-muted {
+	color: var(--color-text-muted-ivory);
+}
+
+.bagllet-muted {
+	color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important; /* a11y: honor reduced motion */
+		transition: none !important; /* a11y: honor reduced motion */
+		scroll-behavior: auto !important; /* a11y: honor reduced motion */
+	}
+}
+</style>
+<title>Bagllet skeleton</title></head>
+<body>
+<a class="bagllet-skip-link" href="#c">پرش به محتوا</a>
+<header class="bagllet-site-header bagllet-surface-dark"><div class="bagllet-container bagllet-site-header__inner"><strong>BAGLLET</strong><nav>خانه · فروشگاه</nav></div></header>
+<main id="c" class="bagllet-site-main"><div class="bagllet-container">
+<h1 class="h1">اسکلت فاز ۲</h1>
+<p class="bagllet-muted">توکن‌ها، Vazirmatn، دکمه‌ها و فوکوس.</p>
+<p><button type="button" class="bagllet-btn bagllet-btn--primary">دکمه مشکی</button>
+<button type="button" class="bagllet-btn bagllet-btn--clay">دکمه Clay</button></p>
+<div class="bagllet-grid">
+<div class="bagllet-surface-ivory" style="padding:var(--space-4);border-radius:var(--radius-lg)">Ivory</div>
+<div style="padding:var(--space-4);background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)">کارت</div>
+</div>
+</div></main>
+<footer class="bagllet-site-footer"><div class="bagllet-container bagllet-site-footer__inner"><p class="bagllet-site-footer__copy">اسکلت قالب</p></div></footer>
+</body></html>

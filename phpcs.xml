@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="Bagllet">
+	<description>WPCS for bagllet theme and preview mu-plugin.</description>
+	<file>public_html/wp-content/themes/bagllet</file>
+	<file>public_html/wp-content/mu-plugins/bagllet-preview.php</file>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/assets/fonts/*</exclude-pattern>
+	<arg name="extensions" value="php"/>
+	<arg value="ps"/>
+	<arg name="parallel" value="4"/>
+	<config name="minimum_supported_wp_version" value="6.0"/>
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="bagllet"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

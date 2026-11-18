@@ -41,8 +41,13 @@ docs/                        نقشه‌راه، پروتکل بازبینی، h
 - فونت بسته‌ی فروش: Vazirmatn (OFL)؛ IRANYekan فقط از طریق آپلود سفارشی روی سایت bagllet.ir
 
 ## ابزار توسعه
-- Node LTS (در این محیط: `tools/node` portable، ignore‌شده) + Playwright برای baseline
+- Node LTS (این محیط: `tools/node` portable، ignore) + Playwright
+- PHP 8.2.26 portable در `tools/php` (ignore) + Composer phar — برای `phpcs`
 - `npm run qa:baseline` — اسکرین‌شات و specs از سایت زنده
+- `npm run qa:checks` — ممنوعه‌های Woodmart / hex / !important
+- `npm run qa:diff:self` — خودآزمایی pixelmatch
+- `npm run qa:phpcs` — WPCS روی قالب و mu-plugin پیش‌نمایش
+- `npm run deploy:dry` / `npm run deploy` — آپلود امن FTP (اسرار فقط `.env.local`)
 
 ## شروع
 
