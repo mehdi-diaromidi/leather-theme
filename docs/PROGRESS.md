@@ -3,7 +3,7 @@
 | فاز | نام | وضعیت | شاخه | بازبینی |
 |---|---|---|---|---|
 | 0 | ایمنی ریپو و ساختار | ✅ تاییدشده (شرط: ریپو خصوصی) | phase/0-repo | [R1](review/phase-0-R1.md) · [R2](review/phase-0-R2.md) |
-| 1 | خط پایه و فهرست قابلیت‌ها | 🔁 در حال اصلاح (R2: چند حالت تعاملی) | phase/1-baseline | [R1](review/phase-1-R1.md) · [R2](review/phase-1-R2.md) |
+| 1 | خط پایه و فهرست قابلیت‌ها | ✅ تاییدشده | phase/1-baseline | [R1](review/phase-1-R1.md) · [R2](review/phase-1-R2.md) · [R3](review/phase-1-R3.md) |
 | 2 | اسکلت قالب، توکن‌ها، ابزار QA | ⏳ | phase/2-skeleton | — |
 | 3 | هدر، فوتر، ناوبری | ⏳ | phase/3-header-footer | — |
 | 4 | صفحات محتوایی | ⏳ | phase/4-content | — |

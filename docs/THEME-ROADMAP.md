@@ -57,6 +57,7 @@ public_html/wp-content/mu-plugins/bagllet-preview.php   ← فقط توسعه؛ 
 
 ### ۱.۳ فونت
 سایت فعلی از IRANYekan استفاده می‌کند که فونت تجاری است و **نباید داخل بسته‌ی فروش** باشد. رویکرد:
+- سایت فعلی دو فونت تجاری دارد: `iranyekan` و `IRANSansXFaNum` (بدنه، ناوبری، قیمت، دکمه، ارقام). هر دو باید از طریق آپلود فونت سفارشی روی سایت bagllet.ir لود شوند؛ هیچ‌کدام داخل zip فروش نمی‌آید.
 - بسته‌ی فروش: `Vazirmatn` (OFL، قابل‌توزیع) به‌عنوان پیش‌فرض.
 - سایت bagllet.ir: IRANYekan از طریق گزینه‌ی «آپلود فونت سفارشی» (Customizer) با `@font-face` پویا لود می‌شود تا ظاهر فعلی عیناً حفظ شود.
 - parity فقط روی سایت bagllet.ir (با IRANYekan) سنجیده می‌شود.
@@ -99,7 +100,7 @@ public_html/wp-content/mu-plugins/bagllet-preview.php   ← فقط توسعه؛ 
 - **ابزار QA:** `qa/diff` (pixelmatch/Playwright) که خروجی قالب جدید را با baseline مقایسه می‌کند؛ `qa/checks` (grep ممنوعه‌ها: `wd-|xts-|woodmart`، hex های خارج از tokens، `!important` بدون کامنت)؛ `phpcs.xml` (WPCS)؛ `package.json` با اسکریپت‌ها.
 - **ابزارها:** اگر Node LTS، PHP (۸٫۱+) یا Composer نصب نیست، خودت از ترمینال نصب کن (مثلاً `winget`) و نسخه‌ها را در `README.md` ثبت کن. فقط همین ابزارهای توسعه؛ تغییر دیگری در تنظیمات سیستم نده.
 - **deploy امن:** `tools/deploy.ps1` (یا معادل Node) که فقط مسیرهای مجاز بخش ۰.۱ را آپلود کند، قبل از بازنویسی از فایل سرور پشتیبان بگیرد، `DELETE` نداشته باشد، حالت `-DryRun` داشته باشد و اسرار را فقط از `.env.local` بخواند.
-- **پیش‌نمایش:** mu-plugin `bagllet-preview.php`: وقتی کوکی/پارامتر با کلید مخفی (ثابت در `wp-config` نه در ریپو؛ کوکی HttpOnly) موجود است، با فیلترهای `template`/`stylesheet`/`option_template`/`option_stylesheet` قالب `bagllet` اعمال شود؛ برای بقیه‌ی بازدیدکنندگان هیچ تغییری نکند. در حالت پیش‌نمایش، CSS/JS قدیمیِ پلاگین که برای Woodmart نوشته شده (`site-theme.css`، `assets/footer/*`) **بارگذاری نشود** تا parity آلوده نشود؛ هرچه از آن‌ها لازم است به قالب منتقل می‌شود (فازهای ۳ تا ۷).
+- **پیش‌نمایش:** mu-plugin `bagllet-preview.php`: وقتی کوکی/پارامتر با کلید مخفی (در یک فایل سروریِ جدا `wp-content/mu-plugins/bagllet-preview-key.php` که از `.env.local` ساخته و با deploy آپلود می‌شود و در ریپو نیست؛ هرگز `wp-config.php` را ویرایش نکن؛ کوکی HttpOnly) موجود است، با فیلترهای `template`/`stylesheet`/`option_template`/`option_stylesheet` قالب `bagllet` اعمال شود؛ برای بقیه‌ی بازدیدکنندگان هیچ تغییری نکند. در حالت پیش‌نمایش، CSS/JS قدیمیِ پلاگین که برای Woodmart نوشته شده (`site-theme.css`، `assets/footer/*`) **بارگذاری نشود** تا parity آلوده نشود؛ هرچه از آن‌ها لازم است به قالب منتقل می‌شود (فازهای ۳ تا ۷).
 - **DoD:** قالب روی وردپرس تمیز بدون notice/warning در حالت پیش‌نمایش کار می‌کند؛ بازدیدکننده‌ی عادی همچنان Woodmart را می‌بیند؛ `phpcs` بدون error؛ چک ممنوعه‌ها صفر؛ اسکریپت diff اجرا و گزارش می‌دهد.
 
 ### فاز ۳ — هدر، فوتر، ناوبری سراسری
